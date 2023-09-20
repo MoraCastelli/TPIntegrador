@@ -206,23 +206,27 @@ public class Universidad {
 			Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
 			
 			//No se puede inscribir Alumnos si este no tiene al 
-			//menos cursada todas las correlativas (Todas las correlativas Con nota >=4
+			//menos cursada todas las correlativas (Todas las correlativas Con nota >=4)
 			if(alumno.getAprobadas().containsAll(curso.getMateria().getCorrelativas()) 
 					
 					//La inscripción no se puede realizar si esta fuera de fecha Inscripción
 					&& (curso.getCicloLectivo().getFechaInicioInscripcion().isAfter(hoy) && curso.getCicloLectivo().getFechaFinalizacionInscripcion().isBefore(hoy)) 
 					
 					//No se puede inscribir el alumno si excede la cantidad de alumnos permitos en el aula
-					&& (cursoAlumno.getAlumnos().size() < (curso.getAula().getCapacidad())) 
+					&& (curso.getAlumnosMateria(curso.getMateria()).size() < (curso.getAula().getCapacidad())) 
 					
 					// No se puede inscribir el Alumno si ya está inscripto a otro curso para el mismo día y Turno
-					//CONSIDERO QUE HAY QUE HACER UN ARRAY TIPO CURSO EN ALUMNO QUE GUARDE A QUE CURSOS SE INSCRIBIO
-					&& ()) {
+					&& !(curso.getTurno().equals(buscarTurnoCurso(alumno)))) {
 				
 				cursoAlumno.getAlumnos().add(alumno);
 			}
 			return cursoAlumno;
 		}
+		return null;
+	}
+
+	private Integer buscarTurnoCurso(Alumno alumno) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

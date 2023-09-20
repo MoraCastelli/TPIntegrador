@@ -340,7 +340,7 @@ public class TestUniversidad {
     	Materia materia = new Materia(nombreMat);
         Aula aula = new Aula(capacidad, codigoAula);
         Curso curso = new Curso(turno, cicloLectivo, materia, aula);
-        Curso_Alumno cursoAlumno = new Curso_Alumno();
+        Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
         assertTrue (unlam.registraAlumno(alumno));
         assertTrue (unlam.inscribirAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
 	}
