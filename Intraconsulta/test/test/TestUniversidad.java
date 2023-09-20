@@ -13,6 +13,7 @@ import src.Profesor;
 import src.Aula;
 import src.CicloLectivo;
 import src.Curso;
+import src.Curso_Alumno;
 
 public class TestUniversidad {
 	
@@ -55,15 +56,13 @@ public class TestUniversidad {
 	public void noAgregarAlumnoSiYaExiste() {
 		String nombreUni = "Unlam";
     	Universidad unlam = new Universidad (nombreUni);
-    	String nombreAlumno = "Lucas";
-    	String apellidoAlumno = "Lilla";
-        Integer dni = 42817472;
-        LocalDate fechaNacimiento = LocalDate.of(2000, 10, 24);
-        LocalDate fechaIngreso = LocalDate.now();
-        Alumno alumno = new Alumno (dni,nombreAlumno, apellidoAlumno, fechaIngreso, fechaNacimiento);
-        boolean resultado = unlam.registraAlumno(alumno);
-        resultado = unlam.registraAlumno(alumno);
-        assertFalse (resultado);
+        Alumno alumno = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
+        Alumno alumno2 = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
+        Alumno alumno3 = new Alumno (42817473,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
+        
+        assertTrue (unlam.registraAlumno(alumno));
+        assertFalse (unlam.registraAlumno(alumno2));
+        assertTrue (unlam.registraAlumno(alumno3));
 	}
 	
 
@@ -319,30 +318,30 @@ public class TestUniversidad {
         assertTrue (registro2);
 	}
 	
-//	@Test
-//	public void inscribirAlumnoACurso() {
-//		String nombreUni = "Unlam";
-//    	Universidad unlam = new Universidad (nombreUni);
-//    	Integer turno = 1;
-//    	Integer capacidad = 30;
-//        Integer codigoAula = 15;
-//        String nombreMat = "PB2";
-//        String nombreAlumno = "Lucas";
-//    	String apellidoAlumno = "Lilla";
-//        Integer dni = 42817472;
-//        LocalDate fechaNacimiento = LocalDate.of(2000, 10, 24);
-//        LocalDate fechaIngreso = LocalDate.now();
-//        Alumno alumno = new Alumno (dni,nombreAlumno, apellidoAlumno, fechaIngreso, fechaNacimiento);
-//        LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
-//        LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
-//        LocalDate fechaInicioInscripcion = LocalDate.of(2023, 3, 3);
-//        LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
-//    	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
-//    	Materia materia = new Materia(nombreMat);
-//        Aula aula = new Aula(capacidad, codigoAula);
-//        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
-//        Curso_Alumno cursoAlumno = new Curso_Alumno();
-//        assertTrue (unlam.registraAlumno(alumno));
-//        assertTrue (unlam.inscribirAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-//	}
+	@Test
+	public void inscribirAlumnoACurso() {
+		String nombreUni = "Unlam";
+    	Universidad unlam = new Universidad (nombreUni);
+    	Integer turno = 1;
+    	Integer capacidad = 30;
+        Integer codigoAula = 15;
+        String nombreMat = "PB2";
+        String nombreAlumno = "Lucas";
+    	String apellidoAlumno = "Lilla";
+        Integer dni = 42817472;
+        LocalDate fechaNacimiento = LocalDate.of(2000, 10, 24);
+        LocalDate fechaIngreso = LocalDate.now();
+        Alumno alumno = new Alumno (dni,nombreAlumno, apellidoAlumno, fechaIngreso, fechaNacimiento);
+        LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
+        LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
+        LocalDate fechaInicioInscripcion = LocalDate.of(2023, 3, 3);
+        LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
+    	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
+    	Materia materia = new Materia(nombreMat);
+        Aula aula = new Aula(capacidad, codigoAula);
+        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso_Alumno cursoAlumno = new Curso_Alumno();
+        assertTrue (unlam.registraAlumno(alumno));
+        assertTrue (unlam.inscribirAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
+	}
 }

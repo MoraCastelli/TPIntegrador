@@ -2,10 +2,10 @@ package src;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Alumno {
 	
-	private ArrayList<Materia> aprobadas;
 	private Integer idAlumno;
 	private Integer dniAlumno;
 	private String nombreAlumno;
@@ -16,7 +16,6 @@ public class Alumno {
 	private static Integer contador = 0;
 	
 	public Alumno(Integer dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento) {
-		this.aprobadas =  new ArrayList<>();
 		this.dniAlumno = dni;
 		this.nombreAlumno = nombre;
 		this.apellidoAlumno = apellido;
@@ -24,12 +23,24 @@ public class Alumno {
 		this.fechaIngreso = fechaIngreso;
 		this.setIdAlumno(contador++);
 	}
-	public ArrayList<Materia> getAprobadas() {
-		return aprobadas;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(dniAlumno);
 	}
-	public void setAprobadas(ArrayList<Materia> aprobadas) {
-		this.aprobadas = aprobadas;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alumno other = (Alumno) obj;
+		return Objects.equals(dniAlumno, other.dniAlumno);
 	}
+
 	public Integer getDni() {
 		return dniAlumno;
 	}
