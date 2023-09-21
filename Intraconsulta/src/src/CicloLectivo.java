@@ -6,19 +6,19 @@ import java.util.Objects;
 
 public class CicloLectivo {
 	private Integer idCicloLectivo;
-	private LocalDate fechaInicioCicloLectivo;
-	private LocalDate fechaFinalizacionCicloLectivo;
 	private LocalDate fechaInicioInscripcion;
 	private LocalDate fechaFinalizacionInscripcion;
+	private LocalDate fechaInicioCicloLectivo;
+	private LocalDate fechaFinalizacionCicloLectivo;
 	
 	private static Integer contador = 0;
 
-	public CicloLectivo(LocalDate fechaInicioCicloLectivo, LocalDate fechaFinalizacionCicloLectivo,
-		LocalDate fechaInicioInscripcion, LocalDate fechaFinalizacionInscripcion) {
-		this.fechaInicioCicloLectivo = fechaInicioCicloLectivo;
-		this.fechaFinalizacionCicloLectivo = fechaFinalizacionCicloLectivo;
+	public CicloLectivo(LocalDate fechaInicioInscripcion, LocalDate fechaFinalizacionInscripcion, 
+						LocalDate fechaInicioCicloLectivo, LocalDate fechaFinalizacionCicloLectivo) {
 		this.fechaInicioInscripcion = fechaInicioInscripcion;
 		this.fechaFinalizacionInscripcion = fechaFinalizacionInscripcion;
+		this.fechaInicioCicloLectivo = fechaInicioCicloLectivo;
+		this.fechaFinalizacionCicloLectivo = fechaFinalizacionCicloLectivo;	
 		this.setIdCicloLectivo(contador++);
 	}
 	
@@ -79,5 +79,9 @@ public class CicloLectivo {
 	public void setIdCicloLectivo(Integer idCicloLectivo) {
 		this.idCicloLectivo = idCicloLectivo;
 	}
+
+	public static void setContador(Integer contador) {
+		CicloLectivo.contador = contador;
+	}	
 
 }

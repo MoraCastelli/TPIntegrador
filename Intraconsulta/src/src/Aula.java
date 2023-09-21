@@ -13,7 +13,6 @@ public class Aula {
 		this.idAula = contador++;
 	}
 	
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(idAula);
@@ -39,5 +38,8 @@ public class Aula {
 		this.cantidadAlumnos = capacidad;
 	}
 	
+	public static void setContador(Integer contador) {
+		Aula.contador = contador;
+	}
 	
 }

@@ -18,17 +18,9 @@ public class Materia {
 		this.setIdMateria(contador++);
 	}
 		
-	public static Integer getContador() {
-		return contador;
-	}
-
-	public static void setContador(Integer contador) {
-		Materia.contador = contador;
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(idMateria);
+		return Objects.hash(nombreMateria);
 	}
 
 	@Override
@@ -40,7 +32,7 @@ public class Materia {
 		if (getClass() != obj.getClass())
 			return false;
 		Materia other = (Materia) obj;
-		return Objects.equals(idMateria, other.idMateria);
+		return Objects.equals(nombreMateria, other.nombreMateria);
 	}
 
 	public String getNombre() {
@@ -62,6 +54,10 @@ public class Materia {
 
 	public void setIdMateria(Integer idMateria) {
 		this.idMateria = idMateria;
+	}
+	
+	public static void setContador(Integer contador) {
+		Materia.contador = contador;
 	}
 	
 }

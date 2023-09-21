@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Objects;
+
 public class Nota {
 	private Integer idNota;
 	private Integer primerParcial;
@@ -18,6 +20,23 @@ public class Nota {
 			this.recueperatorio = recueperatorioSegundo;
 		}
 		this.idNota = contador++;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(idNota);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nota other = (Nota) obj;
+		return Objects.equals(idNota, other.idNota);
 	}
 
 	public Integer getPrimerParcial() {
@@ -43,6 +62,9 @@ public class Nota {
 	public void setRecueperatorio(Integer recueperatorio) {
 		this.recueperatorio = recueperatorio;
 	}
-	
-	
+
+	public static void setContador(Integer contador) {
+		Nota.contador = contador;
+	}
+		
 }

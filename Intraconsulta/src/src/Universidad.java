@@ -84,7 +84,7 @@ public class Universidad {
 		
 	}
 
-	public boolean registraAlumno(Alumno alumno) {
+	public boolean registrarAlumno(Alumno alumno) {
 	
 		if(alumnos.contains(alumno)) {
 			return false;
@@ -94,7 +94,7 @@ public class Universidad {
 		}
 	}
 
-	public boolean registraProfesor(Profesor profesor) {
+	public boolean registrarProfesor(Profesor profesor) {
 		if(profesores.contains(profesor)) {
 			return false;
 		}else {
@@ -135,8 +135,8 @@ public class Universidad {
 		}
 	}
 
-	public boolean registraCicloLectivo(CicloLectivo cicloLectivo) {
-		if(ciclosLectivos.contains(cicloLectivo)) {
+	public boolean registrarCicloLectivo(CicloLectivo cicloLectivo) {
+		if(ciclosLectivos.contains(cicloLectivo) || (seSuperponenFechas(cicloLectivo))) {
 			return false;
 		}else {
 			ciclosLectivos.add(cicloLectivo);
@@ -144,6 +144,18 @@ public class Universidad {
 		}
 	}
 	
+	//***********************************************************************//Completar condiciones
+	private boolean seSuperponenFechas(CicloLectivo cicloLectivo) {
+		
+		for (CicloLectivo cicloLectivo1 : ciclosLectivos) {
+			if(cicloLectivo1.getFechaInicioInscripcion().isAfter(cicloLectivo.getFechaInicioCicloLectivo())){
+				return true;
+			}
+		}
+		return false;
+	}
+	//***********************************************************************//
+
 	private Materia buscarMateriaPorId(Integer idMateria) {
 		for (Materia materia : materias) {
 			if (materia.getIdMateria() == idMateria) {

@@ -23,7 +23,7 @@ public class Alumno {
 		this.fechaIngreso = fechaIngreso;
 		this.setIdAlumno(contador++);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(dniAlumno);
@@ -66,6 +66,9 @@ public class Alumno {
 		this.idAlumno = idAlumno;
 	}
 	
+	public static void setContador(Integer contador) {
+		Alumno.contador = contador;
+	}
 	
 	
 }

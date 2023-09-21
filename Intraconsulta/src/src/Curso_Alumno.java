@@ -40,7 +40,11 @@ public class Curso_Alumno {
 	public void setNota(ArrayList<Nota> nota) {
 		this.nota = nota;
 	}
-	
+
+	public static void setContador(Integer contador) {
+		Curso_Alumno.contador = contador;
+	}
+
 	public boolean registraAlumno(Alumno alumno, Universidad universidad) {
 		if(universidad.getAlumnos().contains(alumno)) {
 				if(alumnos.contains(alumno)) {

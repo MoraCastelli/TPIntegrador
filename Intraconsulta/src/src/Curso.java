@@ -75,7 +75,9 @@ public class Curso {
 	public void setIdCurso(Integer idCurso) {
 		this.idCurso = idCurso;
 	}
-	
-	
+
+	public static void setContador(Integer contador) {
+		Curso.contador = contador;
+	}	
 	
 }
