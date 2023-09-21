@@ -15,6 +15,7 @@ public class Profesor {
 		this.apellidoProfesor = apellido;
 		this.setIdProfesor(contador++);
 	}
+	
 	public Integer getDni() {
 		return dniProfesor;
 	}

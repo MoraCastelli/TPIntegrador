@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Materia {
@@ -10,16 +11,24 @@ public class Materia {
 	private ArrayList<Materia> correlativas;
 	
 	private static Integer contador = 0;
-	
+		
 	public Materia(String nombreMateria) {
 		this.nombreMateria = nombreMateria;
 		this.correlativas = new ArrayList<>();
 		this.setIdMateria(contador++);
 	}
-	
+		
+	public static Integer getContador() {
+		return contador;
+	}
+
+	public static void setContador(Integer contador) {
+		Materia.contador = contador;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(correlativas, idMateria, nombreMateria);
+		return Objects.hash(idMateria);
 	}
 
 	@Override
@@ -31,11 +40,8 @@ public class Materia {
 		if (getClass() != obj.getClass())
 			return false;
 		Materia other = (Materia) obj;
-		return Objects.equals(correlativas, other.correlativas) && Objects.equals(idMateria, other.idMateria)
-				&& Objects.equals(nombreMateria, other.nombreMateria);
+		return Objects.equals(idMateria, other.idMateria);
 	}
-
-
 
 	public String getNombre() {
 		return nombreMateria;

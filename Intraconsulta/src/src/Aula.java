@@ -13,10 +13,12 @@ public class Aula {
 		this.idAula = contador++;
 	}
 	
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cantidadAlumnos, idAula);
+		return Objects.hash(idAula);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -26,9 +28,10 @@ public class Aula {
 		if (getClass() != obj.getClass())
 			return false;
 		Aula other = (Aula) obj;
-		return Objects.equals(cantidadAlumnos, other.cantidadAlumnos) && Objects.equals(idAula, other.idAula);
+		return Objects.equals(idAula, other.idAula);
 	}
-	
+
+
 	public Integer getCapacidad() {
 		return cantidadAlumnos;
 	}

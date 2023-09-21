@@ -14,18 +14,17 @@ public class CicloLectivo {
 	private static Integer contador = 0;
 
 	public CicloLectivo(LocalDate fechaInicioCicloLectivo, LocalDate fechaFinalizacionCicloLectivo,
-			LocalDate fechaInicioInscripcion, LocalDate fechaFinalizacionInscripcion) {
+		LocalDate fechaInicioInscripcion, LocalDate fechaFinalizacionInscripcion) {
 		this.fechaInicioCicloLectivo = fechaInicioCicloLectivo;
 		this.fechaFinalizacionCicloLectivo = fechaFinalizacionCicloLectivo;
 		this.fechaInicioInscripcion = fechaInicioInscripcion;
 		this.fechaFinalizacionInscripcion = fechaFinalizacionInscripcion;
 		this.setIdCicloLectivo(contador++);
 	}
-
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(fechaFinalizacionCicloLectivo, fechaFinalizacionInscripcion, fechaInicioCicloLectivo,
-				fechaInicioInscripcion, idCicloLectivo);
+		return Objects.hash(idCicloLectivo);
 	}
 
 
@@ -38,14 +37,9 @@ public class CicloLectivo {
 		if (getClass() != obj.getClass())
 			return false;
 		CicloLectivo other = (CicloLectivo) obj;
-		return Objects.equals(fechaFinalizacionCicloLectivo, other.fechaFinalizacionCicloLectivo)
-				&& Objects.equals(fechaFinalizacionInscripcion, other.fechaFinalizacionInscripcion)
-				&& Objects.equals(fechaInicioCicloLectivo, other.fechaInicioCicloLectivo)
-				&& Objects.equals(fechaInicioInscripcion, other.fechaInicioInscripcion)
-				&& Objects.equals(idCicloLectivo, other.idCicloLectivo);
+		return Objects.equals(idCicloLectivo, other.idCicloLectivo);
 	}
 
-	
 	public LocalDate getFechaInicioCicloLectivo() {
 		return fechaInicioCicloLectivo;
 	}

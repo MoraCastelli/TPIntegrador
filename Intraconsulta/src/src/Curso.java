@@ -19,14 +19,10 @@ public class Curso {
 		this.setIdCurso(contador++);
 	}
 	
-	
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(aula, cicloLectivo, idCurso, materia, turnoDia);
+		return Objects.hash(idCurso);
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -37,12 +33,8 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
-		return Objects.equals(aula, other.aula) && Objects.equals(cicloLectivo, other.cicloLectivo)
-				&& Objects.equals(idCurso, other.idCurso) && Objects.equals(materia, other.materia)
-				&& Objects.equals(turnoDia, other.turnoDia);
+		return Objects.equals(idCurso, other.idCurso);
 	}
-
-
 
 	public Integer getTurno() {
 		return turnoDia;
