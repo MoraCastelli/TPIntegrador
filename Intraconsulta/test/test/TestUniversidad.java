@@ -185,7 +185,6 @@ public class TestUniversidad {
 	public void crearCurso() {
 		String nombreUniversidad = "Unlam";
     	Integer turno = 1;
-    	Integer capacidad = 30;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -195,8 +194,7 @@ public class TestUniversidad {
         Universidad unlam = new Universidad (nombreUniversidad);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
         //REGISTRAR: aula, materia, cicloLectivo
         assertTrue (unlam.registraCurso(curso));
 	}
@@ -205,7 +203,6 @@ public class TestUniversidad {
 	public void crear2Curso() {
 		String nombreUniversidad = "Unlam";
     	Integer turno = 1;
-    	Integer capacidad = 30;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -215,12 +212,10 @@ public class TestUniversidad {
         Universidad unlam = new Universidad (nombreUniversidad);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
         assertTrue (unlam.registraCurso(curso));
         
         Integer turno1 = 1;
-    	Integer capacidad1 = 30;
         String nombreMateria1 = "PB2";
         LocalDate fechaInicioCicloLectivo1 = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo1 = LocalDate.of(2023, 7, 15);
@@ -228,19 +223,10 @@ public class TestUniversidad {
         LocalDate fechaFinalizacionInscripcion1 = LocalDate.of(2023, 3, 13);
     	CicloLectivo cicloLectivo1 = new CicloLectivo(fechaInicioCicloLectivo1, fechaFinalizacionCicloLectivo1, fechaInicioInscripcion1, fechaFinalizacionInscripcion1);
     	Materia materia1 = new Materia(nombreMateria1);
-        Aula aula1 = new Aula(capacidad1);
-        Curso curso1 = new Curso(turno1, cicloLectivo1, materia1, aula1);
+        Curso curso1 = new Curso(turno1, cicloLectivo1, materia1);
         assertTrue (unlam.registraCurso(curso1));
         
       //REGISTRAR: aula, materia, cicloLectivo
-//        
-//        reiniciarContadores();
-//		Universidad unlam = new Universidad ("Unlam");
-//		Curso curso = new Curso(1, cicloLectivo1, materia1, aula1);
-//        Curso curso1 = new Curso(1, cicloLectivo1, materia1, aula1);
-//        
-//        assertTrue (unlam.registrarMateria(materia));
-//        assertTrue (unlam.registrarMateria(materia2));
 	}
 	
 	@Test
@@ -249,7 +235,6 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	Integer turno = 1;
     	Integer capacidad = 30;
-        Integer codigoAula = 15;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -257,8 +242,7 @@ public class TestUniversidad {
         LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
         boolean resultado = unlam.registraCurso(curso);
         resultado = unlam.registraCurso(curso);
         assertFalse (resultado);
@@ -270,8 +254,6 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad ("Unlam");
     	Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
     	Integer turno = 1;
-    	Integer capacidad = 30;
-        Integer codigoAula = 15;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -279,8 +261,7 @@ public class TestUniversidad {
         LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
         Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
     	
     	assertTrue (unlam.cargarRelacionCursoProfesor(cursoProfesor));
@@ -294,8 +275,6 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad ("Unlam");
     	Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
     	Integer turno = 1;
-    	Integer capacidad = 30;
-        Integer codigoAula = 15;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -303,16 +282,41 @@ public class TestUniversidad {
         LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
-        Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
+        assertTrue (unlam.registraCurso(curso));
+        assertTrue (unlam.registrarProfesor(profesor));
     	
     	assertTrue (unlam.cargarCursoProfesor(curso.getIdCurso(), profesor.getDni()));
-    	assertFalse (unlam.cargarCursoProfesor(curso.getIdCurso(), profesor.getDni())));
+    	assertFalse (unlam.cargarCursoProfesor(curso.getIdCurso(), profesor.getDni()));
     	
 	}
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////
+	@Test
+    public void asignarProfesorAlCurso() {
+        
+        Universidad unlam = new Universidad ("Unlam");
+        
+        Integer turno = 1;
+        String nombreMateria = "PB2";
+        LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
+        LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
+        LocalDate fechaInicioInscripcion = LocalDate.of(2023, 3, 3);
+        LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
+        CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
+        Materia materia = new Materia(nombreMateria);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
+        assertTrue (unlam.registraCurso(curso));    
+        
+        Profesor profesor = new Profesor (42653314,"Mora", "Castelli");     
+        assertTrue (unlam.registrarProfesor(profesor));
+        
+        Integer idCurso = 0;
+        Integer dniProfesor = 42653314;
+        
+        assertTrue(unlam.cargarCursoProfesor(idCurso, dniProfesor));
+    }
+	
+	//AGREGAR MAS TESTERS//
 	
 	@Test
 	public void asignarMateriaCorrelativa() {
@@ -321,15 +325,14 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	String nombreMateria = "PB2";
     	String nombreCorrelativa = "PB1";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        boolean registro1 = unlam.registrarMateria(materia);
-        boolean registro2 = unlam.registrarMateria(materiaCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        assertTrue (unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa));
-        assertTrue (registro1);
-        assertTrue (registro2);
+        
+        assertTrue(unlam.registrarMateria(materia));
+        assertTrue(unlam.registrarMateria(materiaCorrelativa));
+        
+        assertTrue (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
 	}
 	
 	@Test
@@ -339,11 +342,11 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	String nombreMateria = "PB2";
     	String nombreCorrelativa = "PB1";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        assertFalse (unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa));
+        
+        assertFalse (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
 
 	}
 	
@@ -352,19 +355,17 @@ public class TestUniversidad {
 		
 		String nombreUniversidad = "Unlam";
     	Universidad unlam = new Universidad (nombreUniversidad);
-    	String nombreMateria = "PB2";
-    	String nombreCorrelativa = "PB1";
+    	String nombreMateria = "PB1";
+    	String nombreCorrelativa = "PB2";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        boolean registro1 = unlam.registrarMateria(materia);
-        boolean registro2 = unlam.registrarMateria(materiaCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        boolean resultado = unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa);
-        resultado = unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa);
-        assertFalse (resultado);
-        assertTrue (registro1);
-        assertTrue (registro2);
+        
+        assertTrue (unlam.registrarMateria(materia));
+        assertTrue (unlam.registrarMateria(materiaCorrelativa));
+        assertTrue (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        assertFalse (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        
 	}
 	
 	@Test
@@ -374,16 +375,15 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	String nombreMateria = "PB2";
     	String nombreCorrelativa = "PB1";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        boolean registro1 = unlam.registrarMateria(materia);
-        boolean registro2 = unlam.registrarMateria(materiaCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        assertTrue (unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa));
-        assertTrue (unlam.eliminarCorrelativa(idMateria, idMateriaCorrelativa));
-        assertTrue (registro1);
-        assertTrue (registro2);
+        
+        assertTrue (unlam.registrarMateria(materia));
+        assertTrue (unlam.registrarMateria(materiaCorrelativa));
+        assertTrue (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        assertTrue (unlam.eliminarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        
 	}
 	
 	@Test
@@ -393,12 +393,12 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	String nombreMateria = "PB2";
     	String nombreCorrelativa = "PB1";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        assertFalse (unlam.asignarCorrelativa(idMateria, idMateriaCorrelativa));
-        assertFalse (unlam.eliminarCorrelativa(idMateria, idMateriaCorrelativa));
+        
+        assertFalse (unlam.asignarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        assertFalse (unlam.eliminarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
 	}
 	
 	@Test
@@ -408,24 +408,49 @@ public class TestUniversidad {
     	Universidad unlam = new Universidad (nombreUniversidad);
     	String nombreMateria = "PB2";
     	String nombreCorrelativa = "PB1";
+    	
         Materia materia = new Materia (nombreMateria);
         Materia materiaCorrelativa = new Materia (nombreCorrelativa);
-        boolean registro1 = unlam.registrarMateria(materia);
-        boolean registro2 = unlam.registrarMateria(materiaCorrelativa);
-        Integer idMateria = materia.getIdMateria();
-        Integer idMateriaCorrelativa = materiaCorrelativa.getIdMateria();
-        assertFalse (unlam.eliminarCorrelativa(idMateria, idMateriaCorrelativa));
-        assertTrue (registro1);
-        assertTrue (registro2);
+        
+        assertTrue (unlam.registrarMateria(materia));
+        assertTrue (unlam.registrarMateria(materiaCorrelativa));
+        
+        assertFalse (unlam.eliminarCorrelativa(materia.getIdMateria(), materiaCorrelativa.getIdMateria()));
+        
 	}
+	
+	///HACER MAS TESTS///
+	
+	@Test
+    public void asignarAulaAlCurso() {
+        
+        Universidad unlam = new Universidad ("Unlam");
+        
+        Integer turno = 1;
+        Integer capacidad = 30;
+        String nombreMateria = "PB2";
+        LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
+        LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
+        LocalDate fechaInicioInscripcion = LocalDate.of(2023, 3, 3);
+        LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
+        
+        CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
+        Materia materia = new Materia(nombreMateria);
+        Aula aula = new Aula(capacidad);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
+        
+        assertTrue (unlam.registraCurso(curso));        
+        assertTrue (unlam.registraAula(aula));
+        assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
+    }
+	
+/////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@Test
 	public void inscribirAlumnoACurso() {
 		String nombreUniversidad = "Unlam";
     	Universidad unlam = new Universidad (nombreUniversidad);
     	Integer turno = 1;
-    	Integer capacidad = 30;
-        Integer codigoAula = 15;
         String nombreMateria = "PB2";
         String nombreAlumno = "Lucas";
     	String apellidoAlumno = "Lilla";
@@ -439,8 +464,7 @@ public class TestUniversidad {
         LocalDate fechaFinalizacionInscripcion = LocalDate.of(2023, 3, 13);
     	CicloLectivo cicloLectivo = new CicloLectivo(fechaInicioCicloLectivo, fechaFinalizacionCicloLectivo, fechaInicioInscripcion, fechaFinalizacionInscripcion);
     	Materia materia = new Materia(nombreMateria);
-        Aula aula = new Aula(capacidad);
-        Curso curso = new Curso(turno, cicloLectivo, materia, aula);
+        Curso curso = new Curso(turno, cicloLectivo, materia);
         Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
         assertTrue (unlam.registrarAlumno(alumno));
        // assertTrue (unlam.inscribirAlumnoACurso(alumno.getDni(), curso.getIdCurso()));

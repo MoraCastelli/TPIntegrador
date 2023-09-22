@@ -9,8 +9,6 @@ public class Curso_Alumno {
 	private static Integer contador = 0;
 	
 	public Curso_Alumno(Curso curso) {
-		this.alumno = alumno;
-		this.nota = nota;
 		this.curso = curso;
 		this.idCursoAlumno = contador++;
 	}

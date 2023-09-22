@@ -11,11 +11,10 @@ public class Curso {
 	
 	private static Integer contador = 0;
 	
-	public Curso(Integer turnoDia, CicloLectivo cicloLectivo, Materia materia, Aula aula) {
+	public Curso(Integer turnoDia, CicloLectivo cicloLectivo, Materia materia) {
 		this.turnoDia = turnoDia;
 		this.cicloLectivo = cicloLectivo;
 		this.materia = materia;
-		this.aula = aula;
 		this.setIdCurso(contador++);
 	}
 

@@ -1,6 +1,5 @@
 package src;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Curso_Profe {

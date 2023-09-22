@@ -8,8 +8,8 @@ public class Aula {
 	
 	private static Integer contador = 0;
 	
-	public Aula(Integer capacidad ) {
-		this.cantidadAlumnos = capacidad;
+	public Aula(Integer cantidadAlumnos) {
+		this.cantidadAlumnos = cantidadAlumnos;
 		this.idAula = contador++;
 	}
 	
@@ -30,11 +30,20 @@ public class Aula {
 		return Objects.equals(idAula, other.idAula);
 	}
 
+	
 
-	public Integer getCapacidad() {
+	public Integer getIdAula() {
+		return idAula;
+	}
+
+	public void setIdAula(Integer idAula) {
+		this.idAula = idAula;
+	}
+
+	public Integer getCantidadAlumnos() {
 		return cantidadAlumnos;
 	}
-	public void setCapacidad(Integer capacidad) {
+	public void setCantidadAlumnos(Integer capacidad) {
 		this.cantidadAlumnos = capacidad;
 	}
 	

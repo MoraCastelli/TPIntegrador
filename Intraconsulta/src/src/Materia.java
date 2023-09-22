@@ -2,7 +2,6 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Materia {

@@ -176,9 +176,7 @@ public class Universidad {
 		}
 	}
 	
-///////////////////////////////////////////////////////////////////////////
-	
-	public Curso_Profe cargarCursoProfesor(Integer idCurso, Integer dniProfesor) {
+	public boolean cargarCursoProfesor(Integer idCurso, Integer dniProfesor) {
 		Profesor profesor = buscarProfesorPorDni(dniProfesor);
 		Curso curso = buscarCursoPorId(idCurso);
 		Integer contador = 0;
@@ -187,14 +185,16 @@ public class Universidad {
 			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) {
 				if(cursoAlumno.getCurso().equals(curso)) {
 					contador++;
-					//hasta aca llegamos
 				}
 			}
-		}
-		 Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
+		}if(contador<=20) {
+			Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
+			if(cargarRelacionCursoProfesor (cursoProfesor)) {
+				 return true;
+			}
+        }
 		return false;
 	}
-	
 	
 	private Materia buscarMateriaPorId(Integer idMateria) {
 		for (Materia materia : materias) {
@@ -211,8 +211,9 @@ public class Universidad {
 		
 		Materia materia = buscarMateriaPorId(idMateria);
 		Materia materiaCorrelativa = buscarMateriaPorId(idMateriaCorrelativa);
+		
 		if(materia != null && materiaCorrelativa != null) {
-			if(materia.getCorrelativas().contains(materiaCorrelativa)) {
+			if(!(materia.getCorrelativas().isEmpty()) && materia.getCorrelativas().contains(materiaCorrelativa)) {
 				return false;
 			}else {
 				materia.getCorrelativas().add(materiaCorrelativa);
@@ -220,17 +221,48 @@ public class Universidad {
 			}
 		}
 		return false;
-		
 	}
 
 	public boolean eliminarCorrelativa(Integer idMateria, Integer idMateriaCorrelativa) {
+		
 		Materia materia = buscarMateriaPorId(idMateria);
 		Materia materiaCorrelativa = buscarMateriaPorId(idMateriaCorrelativa);
+		
 		if(materia != null && materiaCorrelativa != null) {
-			return materia.getCorrelativas().remove(materiaCorrelativa);
+			if(!(materia.getCorrelativas().isEmpty()) && materia.getCorrelativas().contains(materiaCorrelativa)) {
+				return materia.getCorrelativas().remove(materiaCorrelativa);
+			}
+		}return false;
+	}
+	
+	private Aula buscarAulaPorId(Integer idAula) {
+		for (Aula aula : aulas) {
+			if(aula.getIdAula() == idAula) {
+				return aula;
+			}
 		}
+		return null;
+	}
+	
+	public boolean asignarAulaACurso(Integer idCurso, Integer idAula) {
+		Aula aula = buscarAulaPorId(idAula);
+		Curso curso = buscarCursoPorId(idCurso);
+		Integer contador = 0;
+		
+		if(aula != null && curso != null) {
+			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+				if(cursoAlumno.getCurso().equals(curso)) {
+					contador++;
+				}
+			}
+		}if(contador <= aula.getCantidadAlumnos()) {
+			curso.setAula(aula);
+			return true;
+        }
 		return false;
 	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////
 
 	public Curso_Alumno inscribirAlumnoACurso(Integer dniAlumno, Integer idCurso) {
 		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
@@ -258,11 +290,6 @@ public class Universidad {
 			}
 			return cursoAlumno;
 		}
-		return null;
-	}
-
-	private Integer buscarTurnoCurso(Alumno alumno) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
