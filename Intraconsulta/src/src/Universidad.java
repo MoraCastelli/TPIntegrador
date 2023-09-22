@@ -2,6 +2,7 @@ package src;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Universidad {
 	private String nombre;
@@ -11,7 +12,7 @@ public class Universidad {
 	private ArrayList<Aula> aulas;
 	private ArrayList<Curso> cursos;
 	private ArrayList<CicloLectivo> ciclosLectivos;
-	//private ArrayList<Curso_Profe> relacionCursoProfe;
+	private ArrayList<Curso_Profe> relacionCursoProfesor;
 	private ArrayList<Curso_Alumno> relacionCursoAlumno;
 	
 	public Universidad(String nombre) {
@@ -22,6 +23,7 @@ public class Universidad {
 		this.aulas = new ArrayList<>();
 		this.cursos = new ArrayList<>();
 		this.relacionCursoAlumno = new ArrayList<>();
+		this.relacionCursoProfesor = new ArrayList<>();
 		this.ciclosLectivos = new ArrayList<>();
 	}
 
@@ -75,7 +77,7 @@ public class Universidad {
 
 	public boolean registrarMateria(Materia materia) {
 		
-		if(materias.contains(materia)) {
+		if(!(materias.isEmpty()) && materias.contains(materia)) {
 			return false;
 		}else {
 			materias.add(materia);
@@ -86,16 +88,33 @@ public class Universidad {
 
 	public boolean registrarAlumno(Alumno alumno) {
 	
-		if(alumnos.contains(alumno)) {
+		if(!(alumnos.isEmpty()) && alumnos.contains(alumno)) {
 			return false;
 		}else {
 			alumnos.add(alumno);
 			return true;
 		}
 	}
+	
+	public boolean registrarCicloLectivo(CicloLectivo cicloLectivo) {
+		if(!(ciclosLectivos.isEmpty()) && (ciclosLectivos.contains(cicloLectivo) || (seSuperponenFechas(cicloLectivo)))) {
+			return false;
+		}else {
+			ciclosLectivos.add(cicloLectivo);
+			return true;
+		}
+	}
+	
+	
+	private boolean seSuperponenFechas(CicloLectivo cicloLectivo) {
+		
+		return !(ciclosLectivos.get(ciclosLectivos.size()-1).getFechaFinalizacionCicloLectivo().isBefore(cicloLectivo.getFechaInicioInscripcion()));
+	}
+	
+
 
 	public boolean registrarProfesor(Profesor profesor) {
-		if(profesores.contains(profesor)) {
+		if(!(profesores.isEmpty()) && profesores.contains(profesor)) {
 			return false;
 		}else {
 			profesores.add(profesor);
@@ -104,7 +123,7 @@ public class Universidad {
 	}
 
 	public boolean registraAula(Aula aula) {
-		if(aulas.contains(aula)) {
+		if(!(aulas.isEmpty()) && aulas.contains(aula)) {
 			return false;
 		}else {
 			aulas.add(aula);
@@ -112,50 +131,71 @@ public class Universidad {
 		}
 	}
 	
-	private boolean existeOtroCursoConMateriaCicloYTurnoIgual(Curso curso) {
-		Materia materia = curso.getMateria();
-		CicloLectivo cicloLectivo = curso.getCicloLectivo();
-		Integer turno = curso.getTurno();
-		
-		for (Curso cursoRecorrido : cursos) {
-			if ((cursoRecorrido.getMateria().getIdMateria() ==  materia.getIdMateria()) && (cursoRecorrido.getTurno() == turno) && (cursoRecorrido.getCicloLectivo().getIdCicloLectivo() == cicloLectivo.getIdCicloLectivo())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public boolean registraCurso(Curso curso) {
-		
-		if(cursos.contains(curso) || existeOtroCursoConMateriaCicloYTurnoIgual(curso)) {
+		if(!(cursos.isEmpty()) && cursos.contains(curso)) {
 			return false;
 		}else {
 			cursos.add(curso);
 			return true;
 		}
 	}
-
-	public boolean registrarCicloLectivo(CicloLectivo cicloLectivo) {
-		if(ciclosLectivos.contains(cicloLectivo) || (seSuperponenFechas(cicloLectivo))) {
+	
+	private Alumno buscarAlumnoPorDni(Integer dniAlumno) {
+		for (Alumno alumno : alumnos) {
+			if (alumno.getDni() == dniAlumno) {
+				return alumno;
+			}
+		}
+		return null;
+	}
+	
+	private Profesor buscarProfesorPorDni(Integer dniProfesor) {
+		for (Profesor profesor : profesores) {
+			if (profesor.getDni() == dniProfesor) {
+				return profesor;
+			}
+		}
+		return null;
+	}
+	
+	private Curso buscarCursoPorId(Integer idCurso) {
+		for (Curso curso : cursos) {
+			if(curso.getIdCurso() == idCurso) {
+				return curso;
+			}
+		}
+		return null;
+	}
+	
+	public boolean cargarRelacionCursoProfesor (Curso_Profe cursoProfesor) {
+		if(!(relacionCursoProfesor.isEmpty()) && relacionCursoProfesor.contains(cursoProfesor)) {
 			return false;
 		}else {
-			ciclosLectivos.add(cicloLectivo);
+			relacionCursoProfesor.add(cursoProfesor);
 			return true;
 		}
 	}
 	
-	//***********************************************************************//Completar condiciones
-	private boolean seSuperponenFechas(CicloLectivo cicloLectivo) {
+///////////////////////////////////////////////////////////////////////////
+	
+	public Curso_Profe cargarCursoProfesor(Integer idCurso, Integer dniProfesor) {
+		Profesor profesor = buscarProfesorPorDni(dniProfesor);
+		Curso curso = buscarCursoPorId(idCurso);
+		Integer contador = 0;
 		
-		for (CicloLectivo cicloLectivo1 : ciclosLectivos) {
-			if(cicloLectivo1.getFechaInicioInscripcion().isAfter(cicloLectivo.getFechaInicioCicloLectivo())){
-				return true;
+		if(profesor != null && curso != null) {
+			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+				if(cursoAlumno.getCurso().equals(curso)) {
+					contador++;
+					//hasta aca llegamos
+				}
 			}
 		}
+		 Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
 		return false;
 	}
-	//***********************************************************************//
-
+	
+	
 	private Materia buscarMateriaPorId(Integer idMateria) {
 		for (Materia materia : materias) {
 			if (materia.getIdMateria() == idMateria) {
@@ -164,7 +204,9 @@ public class Universidad {
 		}
 		return null;
 	}
+	
 
+	
 	public boolean asignarCorrelativa(Integer idMateria, Integer idMateriaCorrelativa) {
 		
 		Materia materia = buscarMateriaPorId(idMateria);
@@ -188,24 +230,6 @@ public class Universidad {
 			return materia.getCorrelativas().remove(materiaCorrelativa);
 		}
 		return false;
-	}
-	
-	private Alumno buscarAlumnoPorDni(Integer dniAlumno) {
-		for (Alumno alumno : alumnos) {
-			if (alumno.getDni() == dniAlumno) {
-				return alumno;
-			}
-		}
-		return null;
-	}
-	
-	private Curso buscarCursoPorId(Integer idCurso) {
-		for (Curso curso : cursos) {
-			if(curso.getIdCurso() == idCurso) {
-				return curso;
-			}
-		}
-		return null;
 	}
 
 	public Curso_Alumno inscribirAlumnoACurso(Integer dniAlumno, Integer idCurso) {
@@ -241,6 +265,11 @@ public class Universidad {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
+
+	
 
 	
 	

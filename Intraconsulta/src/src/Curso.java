@@ -18,10 +18,10 @@ public class Curso {
 		this.aula = aula;
 		this.setIdCurso(contador++);
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(idCurso);
+		return Objects.hash(cicloLectivo, materia, turnoDia);
 	}
 
 	@Override
@@ -33,7 +33,8 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
-		return Objects.equals(idCurso, other.idCurso);
+		return Objects.equals(cicloLectivo, other.cicloLectivo) && Objects.equals(materia, other.materia)
+				&& Objects.equals(turnoDia, other.turnoDia);
 	}
 
 	public Integer getTurno() {

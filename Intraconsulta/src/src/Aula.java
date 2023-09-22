@@ -8,7 +8,7 @@ public class Aula {
 	
 	private static Integer contador = 0;
 	
-	public Aula(Integer capacidad, Integer cod_aula) {
+	public Aula(Integer capacidad ) {
 		this.cantidadAlumnos = capacidad;
 		this.idAula = contador++;
 	}

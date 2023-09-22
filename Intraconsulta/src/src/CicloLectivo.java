@@ -39,6 +39,8 @@ public class CicloLectivo {
 		CicloLectivo other = (CicloLectivo) obj;
 		return Objects.equals(idCicloLectivo, other.idCicloLectivo);
 	}
+	
+	
 
 	public LocalDate getFechaInicioCicloLectivo() {
 		return fechaInicioCicloLectivo;

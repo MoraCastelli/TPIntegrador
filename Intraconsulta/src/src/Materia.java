@@ -20,7 +20,7 @@ public class Materia {
 		
 	@Override
 	public int hashCode() {
-		return Objects.hash(nombreMateria);
+		return Objects.hash(idMateria, nombreMateria);
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class Materia {
 		if (getClass() != obj.getClass())
 			return false;
 		Materia other = (Materia) obj;
-		return Objects.equals(nombreMateria, other.nombreMateria);
+		return Objects.equals(idMateria, other.idMateria) || Objects.equals(nombreMateria, other.nombreMateria);
 	}
 
 	public String getNombre() {

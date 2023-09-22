@@ -1,28 +1,26 @@
 package src;
 
-import java.util.ArrayList;
-
 public class Curso_Alumno {
 	private Integer idCursoAlumno;
-	private ArrayList<Alumno> alumnos;
-	private ArrayList<Nota> nota;
+	private Alumno alumno;
+	private Nota nota;
 	private Curso curso;
 	
 	private static Integer contador = 0;
 	
 	public Curso_Alumno(Curso curso) {
-		this.alumnos = new ArrayList<>();
-		this.nota = new ArrayList<>();
+		this.alumno = alumno;
+		this.nota = nota;
 		this.curso = curso;
 		this.idCursoAlumno = contador++;
 	}
 
-	public ArrayList<Alumno> getAlumnos() {
-		return alumnos;
+	public Alumno getAlumnos() {
+		return alumno;
 	}
 
-	public void setAlumnos(ArrayList<Alumno> alumnos) {
-		this.alumnos = alumnos;
+	public void setAlumnos(Alumno alumnos) {
+		this.alumno = alumno;
 	}
 
 	public Curso getCurso() {
@@ -33,11 +31,11 @@ public class Curso_Alumno {
 		this.curso = curso;
 	}
 
-	public ArrayList<Nota> getNota() {
+	public Nota getNota() {
 		return nota;
 	}
 
-	public void setNota(ArrayList<Nota> nota) {
+	public void setNota(Nota nota) {
 		this.nota = nota;
 	}
 
@@ -45,16 +43,16 @@ public class Curso_Alumno {
 		Curso_Alumno.contador = contador;
 	}
 
-	public boolean registraAlumno(Alumno alumno, Universidad universidad) {
-		if(universidad.getAlumnos().contains(alumno)) {
-				if(alumnos.contains(alumno)) {
-					return false;
-				}else {
-					alumnos.add(alumno);
-					return true;
-			}
-		}
-		return false;
-	}
+//	public boolean registraAlumno(Alumno alumno, Universidad universidad) {
+//		if(universidad.getAlumnos().contains(alumno)) {
+//				if(alumno.contains(alumno)) {
+//					return false;
+//				}else {
+//					//alumno.add(alumno);
+//					return true;
+//			}
+//		}
+//		return false;
+//	}
 	
 }
