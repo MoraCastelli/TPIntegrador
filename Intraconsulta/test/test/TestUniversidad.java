@@ -23,8 +23,9 @@ public class TestUniversidad {
 	public void agregarMateria() {
 		//Agregamos una materia a la universidad. El metodo registrarMateria verifica que no este duplicada y la asigna.
 		
-		reiniciarContadores();
+		
 		Universidad unlam = new Universidad ("Unlam");
+		unlam.reiniciarContadores();
         Materia materia = new Materia ("PB2");  
                 
         assertTrue (unlam.registrarMateria(materia));
@@ -34,8 +35,9 @@ public class TestUniversidad {
 	public void agregarDosMaterias() {
 		//Agregamos dos materias distintas a la universidad.
 		
-		reiniciarContadores();
+		
 		Universidad unlam = new Universidad ("Unlam");
+		unlam.reiniciarContadores();
         Materia materia = new Materia ("PB2");
         Materia materia2 = new Materia ("BD1");
         
@@ -47,8 +49,9 @@ public class TestUniversidad {
 	public void noAgregarMateriaSiYaExiste() {
 		//Agregamos 2 veces la misma materia a la universidad y verificamos que no se pueda registrar.
 		
-		reiniciarContadores();
+		
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Materia materia = new Materia ("PB2");
         boolean resultado = unlam.registrarMateria(materia);
         resultado = unlam.registrarMateria(materia);
@@ -63,8 +66,8 @@ public class TestUniversidad {
 		//Comparamos por el ID, si es distinto comparamos por el nombre de la materia. 
 		//Asi nos aseguramos que no existan 2 materias con el mismo nombre a pesar de tener otro ID.  
 		
-		reiniciarContadores();
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Materia materia = new Materia ("PB2");
         Materia materia2 = new Materia ("PB2");
         boolean resultado = unlam.registrarMateria(materia);
@@ -77,9 +80,9 @@ public class TestUniversidad {
 	@Test
 	public void agregarAlumno() {
 		//Agregamos un alumno a la universidad. El metodo registrarAlumno verifica que no este duplicado y lo asigna.
-		
-		reiniciarContadores();		
+			
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
         
         assertTrue (unlam.registrarAlumno(alumno));
@@ -91,9 +94,9 @@ public class TestUniversidad {
 		//Comparamos por el DNI del alumno.
 		//Agreagamos un tercer alumno con los mismos atributos, pero cambiando el DNI. Verificamos que se pueda agregar. 
 		
-		reiniciarContadores();	
 		String nombreUniversidad = "Unlam";
     	Universidad unlam = new Universidad (nombreUniversidad);
+    	unlam.reiniciarContadores();
         Alumno alumno = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
         Alumno alumno2 = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
         Alumno alumno3 = new Alumno (42817473,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24));
@@ -107,9 +110,9 @@ public class TestUniversidad {
 	@Test
 	public void agregarProfesor() {
 		//Agregamos un profesor a la universidad. El metodo registrarProfesor verifica que no este duplicado y lo asigna.
-		
-		reiniciarContadores();			
+			
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
         
         assertTrue (unlam.registrarProfesor(profesor));
@@ -120,8 +123,8 @@ public class TestUniversidad {
 		//Agreagamos 2 veces el mismo profesor a la universidad y verificamos que no se pueda registrar.
 		//Comparamos por el DNI del profesor.
 		
-		reiniciarContadores();	
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
         
         assertTrue (unlam.registrarProfesor(profesor)); 
@@ -132,9 +135,9 @@ public class TestUniversidad {
 	public void noAgregarProfesorSiTienenElMismoDni() {
 		//Agreagamos 2 profesores con mismo DNI pero distinto nombre y verificamos que no se pueda registrar.
 		//Comparamos por el DNI del profesor.
-		
-		reiniciarContadores();	
+			
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
         Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
         Profesor profesor1 = new Profesor (42653314,"Maria", "LaPaz");
         
@@ -146,8 +149,9 @@ public class TestUniversidad {
 	public void agregarCicloLectivo() {
 		//Agregamos un ciclo lectivo a la universidad. El método registrarCicloLectivo verifica que no este duplicado y lo asigna.
 		
-		reiniciarContadores();
+
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));
     	 	
         assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
@@ -157,8 +161,9 @@ public class TestUniversidad {
 	@Test
 	public void noCrearCicloLectivoSiSeSuperponenLasFechas() {
 		
-    	reiniciarContadores();
+
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));
     	CicloLectivo cicloLectivo1 = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));
     	 	
@@ -254,8 +259,8 @@ public class TestUniversidad {
 	
 	@Test//asignarDocentesAComision()
 	public void agregarRelacionProfesorCurso() {
-		reiniciarContadores();
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
     	Integer turno = 1;
         String nombreMateria = "PB2";
@@ -275,8 +280,8 @@ public class TestUniversidad {
 	
 	@Test//asignarProfesorAlaComision(idComision, dniDocente)
 	public void agregarProfesorACurso() {
-		reiniciarContadores();
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	Profesor profesor = new Profesor (42653314,"Mora", "Castelli");
     	Integer turno = 1;
         String nombreMateria = "PB2";
@@ -455,8 +460,8 @@ public class TestUniversidad {
 	@Test
 	public void inscribirAlumnoACurso() {
 		
-		reiniciarContadores();
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	Materia materia = new Materia("PB2");    	  
         Alumno alumno = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
     	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
@@ -471,139 +476,34 @@ public class TestUniversidad {
         assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
         assertTrue (unlam.registraCurso(curso));
         assertTrue (unlam.registraAula(aula));
-        assertTrue(unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
+        assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
         
         assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
  
 	}
 	
 	@Test
-	public void registrarNotaPrimerParcial() {
-		reiniciarContadores();
+	public void registrarNotaParcial() {
     	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
     	Materia materia = new Materia("PB2");    	  
         Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
     	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
     	Integer turno = 1;   
         Curso curso = new Curso(turno, cicloLectivo, materia);
         Integer notaPrimerParcial = 7;
+        Aula aula = new Aula(20);
               
         assertTrue (unlam.registrarAlumno(alumno));
         assertTrue (unlam.registrarMateria(materia));
         assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
         assertTrue (unlam.registraCurso(curso));
-        
+        assertTrue (unlam.registraAula(aula));
+        assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
         assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
         
-        assertTrue (unlam.registrarNotaPrimerParcial(curso.getIdCurso(),alumno.getIdAlumno(),notaPrimerParcial));
+        assertTrue (unlam.registrarNota(curso.getIdCurso(),alumno.getIdAlumno(),notaPrimerParcial));
 
 	}
-	
-	@Test
-	public void registrarNotaSegundoParcial() {
-		reiniciarContadores();
-    	Universidad unlam = new Universidad ("Unlam");
-    	Materia materia = new Materia("PB2");    	  
-        Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
-    	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
-    	Integer turno = 1;   
-        Curso curso = new Curso(turno, cicloLectivo, materia);
-        Integer notaSegundoParcial = 4;
-              
-        assertTrue (unlam.registrarAlumno(alumno));
-        assertTrue (unlam.registrarMateria(materia));
-        assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
-        assertTrue (unlam.registraCurso(curso));
-        
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-        assertTrue (unlam.registrarNotaSegundoParcial(curso.getIdCurso(),alumno.getIdAlumno(),notaSegundoParcial));
 
-	}
-	
-	@Test
-	public void registrarNotaPrimerRecuperatorio() {
-		reiniciarContadores();
-    	Universidad unlam = new Universidad ("Unlam");
-    	Materia materia = new Materia("PB2");    	  
-        Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
-    	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
-    	Integer turno = 1;   
-        Curso curso = new Curso(turno, cicloLectivo, materia);
-        Integer notaPrimerRecuperatorio = 3;
-              
-        assertTrue (unlam.registrarAlumno(alumno));
-        assertTrue (unlam.registrarMateria(materia));
-        assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
-        assertTrue (unlam.registraCurso(curso));
-        
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-              
-        assertTrue (unlam.registrarNotaPrimerRecuperatorio(curso.getIdCurso(),alumno.getIdAlumno(),notaPrimerRecuperatorio));
-        
-	}
-	
-	@Test
-	public void registrarNotaSegundoRecuperatorio() {
-		reiniciarContadores();
-    	Universidad unlam = new Universidad ("Unlam");
-    	Materia materia = new Materia("PB2");    	  
-        Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
-    	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
-    	Integer turno = 1;   
-        Curso curso = new Curso(turno, cicloLectivo, materia);
-        Integer notaSegundoRecuperatorio = 8;
-              
-        assertTrue (unlam.registrarAlumno(alumno));
-        assertTrue (unlam.registrarMateria(materia));
-        assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
-        assertTrue (unlam.registraCurso(curso));
-        
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-              
-        assertTrue (unlam.registrarNotaSegundoRecuperatorio(curso.getIdCurso(),alumno.getIdAlumno(),notaSegundoRecuperatorio));
-        
-	}
-	
-	@Test
-	public void registrarNotaFinal() {
-		reiniciarContadores();
-    	Universidad unlam = new Universidad ("Unlam");
-    	Materia materia = new Materia("PB2");    	  
-        Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
-    	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
-    	Integer turno = 1;   
-        Curso curso = new Curso(turno, cicloLectivo, materia);
-        Integer notaFinal = 10;
-        Integer notaPrimerParcial = 7;
-        Integer notaSegundoParcial = 4;
-                  
-        assertTrue (unlam.registrarAlumno(alumno));
-        assertTrue (unlam.registrarMateria(materia));
-        assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
-        assertTrue (unlam.registraCurso(curso));
-              
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-        
-        assertTrue (unlam.registrarNotaPrimerParcial(curso.getIdCurso(),alumno.getIdAlumno(),notaPrimerParcial));
-        assertTrue (unlam.registrarNotaSegundoParcial(curso.getIdCurso(),alumno.getIdAlumno(),notaSegundoParcial));
-              
-        assertTrue (unlam.registrarNotaFinal(curso.getIdCurso(),alumno.getIdAlumno(),notaFinal));
-        
-	}
-	
-	//****************************HAY QUE HACER UN TEST IGUAL AL ANTERIOR PERO AGREGANDO MATERIAS CORRELATIVAS Y PONIENDOLES NOTAS*****************************************//
-	
-	private void reiniciarContadores() { 
-		//Este método nos permite reiniciar los contadores que autoincrementan los IDs en las clases.
-		//Lo hicimos ya que queremos que en cada test unitario, los objetos se identifiquen empezando por el 0.
-		Alumno.setContador(0);
-		Aula.setContador(0);
-		CicloLectivo.setContador(0);
-		Curso_Alumno.setContador(0);
-		Curso_Profe.setContador(0);
-		Curso.setContador(0);
-		Materia.setContador(0);
-		Nota.setContador(0);
-		Profesor.setContador(0);
-	}
 }

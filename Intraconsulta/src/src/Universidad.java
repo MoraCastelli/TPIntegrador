@@ -297,7 +297,7 @@ public class Universidad {
 		ArrayList<Materia> materiasAprobadas = new ArrayList<>();
 		
 		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
-			if((cursoAlumno.getNota().getNotafinal() != null) && (cursoAlumno.getNota().getNotafinal() >= 7) && cursoAlumno.getAlumno().getDni() == dniAlumno) {
+			if((cursoAlumno.getNota().getNotafinal() != null) && (cursoAlumno.getNota().getNotafinal() >= 4) && cursoAlumno.getAlumno().getDni() == dniAlumno) {
 				Materia materia = cursoAlumno.getCurso().getMateria();
 				
 				materiasAprobadas.add(materia);
@@ -314,6 +314,7 @@ public class Universidad {
 		Curso curso = buscarCursoPorId(idCurso);
 		Materia materia = buscarMateriaPorCurso(idCurso);
 		LocalDate hoy = LocalDate.of(2023, 3, 10);
+		Nota nota = new Nota(0,0);
 		
 		if(alumno != null && curso != null 
 				&& buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia, buscarMateriasAprobadasDelAlumno(dniAlumno)) 
@@ -322,7 +323,7 @@ public class Universidad {
 				&& buscarTurnosCoincidentes(alumno, curso) 
 				&& !(buscarMateriasAprobadasDelAlumno(dniAlumno).contains(materia))) {
 	
-			Curso_Alumno cursoAlumno = new Curso_Alumno(curso, alumno);
+			Curso_Alumno cursoAlumno = new Curso_Alumno(curso, alumno, nota);
 			cargarRelacionCursoAlumno(cursoAlumno);
 			return true;
 		}
@@ -348,82 +349,56 @@ public class Universidad {
 		return null;
 	}
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////
-	
-	public boolean registrarNotaPrimerParcial(Integer idCurso, Integer dniAlumno, Integer notaPrimerParcial) {
-		
-		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
-		Nota nota = cursoAlumno.getNota();
-		
-		if(notaPrimerParcial >= 1 && notaPrimerParcial <= 10) {
-			nota.setPrimerParcial(notaPrimerParcial);
-			cursoAlumno.setNota(nota);
-			return true;
-		}	
-		return false;
-	}
-	
-	public boolean registrarNotaSegundoParcial(Integer idCurso, Integer dniAlumno, Integer notaSegundoParcial) {
-		
-		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
-		Nota nota = cursoAlumno.getNota();
-		
-		if(notaSegundoParcial >= 1 && notaSegundoParcial <= 10) {
-			nota.setSegundoParcial(notaSegundoParcial);
-			cursoAlumno.setNota(nota);
-			return true;
-		}	
-		return false;
-	}
-	
-	public boolean registrarNotaPrimerRecuperatorio(Integer idCurso, Integer dniAlumno, Integer notaPrimerRecuperatorio) {
-		
-		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
-		Nota nota = cursoAlumno.getNota();
-		
-		if(notaPrimerRecuperatorio >= 1 && notaPrimerRecuperatorio <= 10 && nota.getRecueperatorio() == null) {
-		//if(notaPrimerRecuperatorio >= 1 && notaPrimerRecuperatorio <= 10 && (nota.getPrimerRecueperatorio() == null && nota.getSegundoRecuperatorio() == null) {
-			nota.setRecueperatorio(notaPrimerRecuperatorio);
-			//nota.setPrimerRecuperatorio(notaPrimerRecuperatorio);
-			cursoAlumno.setNota(nota);
-			return true;
-		}	
-		return false;
-	}
-	
-	public boolean registrarNotaSegundoRecuperatorio(Integer idCurso, Integer dniAlumno, Integer notaSegundoRecuperatorio) {
-		
-		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
-		Nota nota = cursoAlumno.getNota();
-		
-		if(notaSegundoRecuperatorio >= 1 && notaSegundoRecuperatorio <= 10 && nota.getRecueperatorio() == null) {
-		//if(notaSegundoRecuperatorio >= 1 && notaSegundoRecuperatorio <= 10 && (nota.getPrimerRecueperatorio() == null && nota.getSegundoRecuperatorio() == null) {
-			nota.setRecueperatorio(notaSegundoRecuperatorio);
-			//nota.setSegundoRecuperatorio(notaSegundoRecuperatorio);
-			cursoAlumno.setNota(nota);
-			return true;
-		}	
-		return false;
-	}
-	
-	public boolean registrarNotaFinal(Integer idCurso, Integer dniAlumno, Integer notaFinal) {
-		
-		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
-		Nota nota = cursoAlumno.getNota();
-		Materia materia = cursoAlumno.getCurso().getMateria();
-		//Alumno alumno = cursoAlumno.getAlumno();
-		ArrayList<Materia> materiasAprobadas = buscarMateriasAprobadasDelAlumno(dniAlumno);
-		boolean promociona = buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia,materiasAprobadas);
-		
-		if(notaFinal >= 1 && notaFinal <= 10 && (nota.getPrimerParcial() >= 4 && nota.getSegundoParcial() >= 4) && (promociona)) { //HAY QUE HACER UN SWITCH CASE CON TODAS LAS POSIBILIDADES
-			nota.setNotafinal(notaFinal);
-			cursoAlumno.setNota(nota);
-			return true;
-		}	
-		return false;
-	}
 
+	//automatizamos la asignacion de recuperatorios asumiendo que promocionar es el objetivo.
+	public Integer contadorDeNotas(Nota nota) {
+		if (nota != null) {
+			if(nota.getPrimerParcial() == 0) {
+				return 1;
+			}if(nota.getSegundoParcial() == 0) {
+				return 2;
+			}if(nota.getPrimerParcial() != 0  && nota.getPrimerParcial() < 4) {
+				return 3;
+			}if(nota.getSegundoParcial() != 0 && nota.getSegundoParcial() < 4) {
+				return 4;
+			}if((nota.getPrimerParcial() < 7 && nota.getPrimerParcial() >= 4) && (nota.getSegundoParcial() >= 7)) {
+				return 3;
+			}if((nota.getSegundoParcial() < 7 && nota.getSegundoParcial() >= 4) && (nota.getPrimerParcial() >= 7)) {
+				return 4;
+			}if((nota.getPrimerParcial() >= 4 && nota.getSegundoParcial() >= 4) && (nota.getRecueperatorioPrimero() != 0 || nota.getRecueperatorioSegundo() != 0)) {
+				return 5;
+			}
+		}
+		return null;
+	}
 	
+	
+	public boolean registrarNota(Integer idCurso, Integer dniAlumno, Integer numero) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Integer identificador = contadorDeNotas(cursoAlumno.getNota());
+		boolean promociona = buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(cursoAlumno.getCurso().getMateria(),buscarMateriasAprobadasDelAlumno(dniAlumno));
+		
+		if((numero >= 1 && numero <= 10)) {
+			
+			if(identificador != 5) {
+				Nota nota = new Nota(identificador, numero);
+				cursoAlumno.setNota(nota);
+				return true;
+				
+			}if(identificador == 5 && promociona){
+				Nota nota = new Nota(identificador, numero);
+				cursoAlumno.setNota(nota);
+				return true;
+				
+			}if(identificador == 5 && !promociona && numero < 7){
+				Nota nota = new Nota(identificador, numero);
+				cursoAlumno.setNota(nota);
+				return true;
+			}
+		}return false;
+		
+	}
 
 	private Materia buscarMateriaPorCurso(Integer idCurso) {
 		for(Curso curso : cursos) {
@@ -432,6 +407,20 @@ public class Universidad {
 			}
 		}
 		return null;
+	}
+	
+	//Este método nos permite reiniciar los contadores que autoincrementan los IDs en las clases.
+	//Lo hicimos ya que queremos que en cada test unitario, los objetos se identifiquen empezando por el 0.
+	public void reiniciarContadores() { 
+		Alumno.setContador(0);
+		Aula.setContador(0);
+		CicloLectivo.setContador(0);
+		Curso_Alumno.setContador(0);
+		Curso_Profe.setContador(0);
+		Curso.setContador(0);
+		Materia.setContador(0);
+		Nota.setContador(0);
+		Profesor.setContador(0);
 	}
 	
 }

@@ -5,14 +5,15 @@ import java.util.Objects;
 public class Curso_Alumno {
 	private Integer idCursoAlumno;
 	private Alumno alumno;
-	private Nota nota = new Nota(0,0,0,0);
+	private Nota nota;
 	private Curso curso;
 	
 	private static Integer contador = 0;
 	
-	public Curso_Alumno(Curso curso, Alumno alumno) {
+	public Curso_Alumno(Curso curso, Alumno alumno, Nota nota) {
 		this.curso = curso;
 		this.alumno = alumno;
+		this.nota = nota;
 		this.idCursoAlumno = contador++;
 	}
 	

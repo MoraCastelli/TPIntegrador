@@ -2,25 +2,47 @@ package src;
 
 import java.util.Objects;
 
+
 public class Nota {
 	private Integer idNota;
 	private Integer notafinal;
 	private Integer primerParcial;
 	private Integer segundoParcial;
-	private Integer recuperatorio; //YO HARIA UNA DIVISION Y PONDRIA PRIMERRECUPERATORIO Y SEGUNDO RECUPERATORIO
+	private Integer recuperatorioPrimero;
+	private Integer recuperatorioSegundo;
+	private Integer identificador;
 	
 	private static Integer contador = 0;
 	
-	public Nota(Integer primerParcial, Integer segundoParcial, Integer recueperatorioPrimero, Integer recueperatorioSegundo) {
-		super();
-		this.primerParcial = primerParcial;
-		this.segundoParcial = segundoParcial;
-		if(recueperatorioPrimero != 0) {
-			this.recuperatorio = recueperatorioPrimero;
-		}else if(recueperatorioSegundo != 0) {
-			this.recuperatorio = recueperatorioSegundo;
-		}
+	public Nota(Integer Identificador, Integer parcial) {
+		
 		this.idNota = contador++;
+		
+		switch (Identificador) {
+		case 1:
+			this.primerParcial = parcial;
+			break;
+		case 2:
+			this.segundoParcial = parcial;
+			break;
+		case 3:
+			this.recuperatorioPrimero = parcial;
+			break;
+		case 4:
+			this.recuperatorioSegundo = parcial;
+			break;
+		case 5:
+			this.notafinal = parcial;
+
+		default:
+			this.primerParcial = 0;
+			this.segundoParcial = 0;
+			this.recuperatorioPrimero = 0;
+			this.recuperatorioSegundo = 0;
+			this.notafinal = 0;
+			break;
+		}
+		
 	}
 	
 	@Override
@@ -64,16 +86,24 @@ public class Nota {
 		this.segundoParcial = segundoParcial;
 	}
 
-	public Integer getRecueperatorio() {
-		return recuperatorio;
-	}
-
-	public void setRecueperatorio(Integer recueperatorio) {
-		this.recuperatorio = recueperatorio;
-	}
-
 	public static void setContador(Integer contador) {
 		Nota.contador = contador;
+	}
+
+	public Integer getRecueperatorioSegundo() {
+		return recuperatorioSegundo;
+	}
+
+	public void setRecueperatorioSegundo(Integer recueperatorioSegundo) {
+		this.recuperatorioSegundo = recueperatorioSegundo;
+	}
+
+	public Integer getRecueperatorioPrimero() {
+		return recuperatorioPrimero;
+	}
+
+	public void setRecueperatorioPrimero(Integer recueperatorioPrimero) {
+		this.recuperatorioPrimero = recueperatorioPrimero;
 	}
 		
 }
