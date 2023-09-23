@@ -250,7 +250,7 @@ public class Universidad {
 		Integer contador = 0;
 		
 		if(aula != null && curso != null) {
-			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) { 
 				if(cursoAlumno.getCurso().equals(curso)) {
 					contador++;
 				}
@@ -263,7 +263,146 @@ public class Universidad {
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
+	
+	//*****************A PARTIR DE ACA ES NUEVO CODIGO*********************//
+	
+	
+	public boolean inscribirUnAlumnoACurso(Integer dniAlumno, Integer idCurso) {
+		
+		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
+		Curso curso = buscarCursoPorId(idCurso);	
+		
+		Nota nota = new Nota(0,0,0,0); //REVISAR ESTA LINEA, PORQUE HAY QUE PONER UNA NOTA POR DEFAULT
+		
+		if(alumno != null && curso != null) {
+			Curso_Alumno cursoAlumno = new Curso_Alumno(curso, alumno, nota);
+			if(cargarRelacionCursoAlumno(cursoAlumno)) {			
+				return true;
+			}	
+		}
+		return false;	
+	}
+	
+	public boolean cargarRelacionCursoAlumno (Curso_Alumno cursoAlumno) {
+		if(!(relacionCursoAlumno.isEmpty()) && relacionCursoAlumno.contains(cursoAlumno)) {
+			return false;
+		}else {
+			relacionCursoAlumno.add(cursoAlumno);
+			return true;
+		}
+	}
+	
+	private Curso_Alumno buscarCursoAlumno(Integer idCurso, Integer dniAlumno) {
+		
+		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if((cursoAlumno.getCurso().getIdCurso() == idCurso) && (cursoAlumno.getAlumno().getIdAlumno() == dniAlumno)) {
+				return cursoAlumno;
+			}
+		}			
+		return null;
+	}
+	
+	public boolean registrarNotaPrimerParcial(Integer idCurso, Integer dniAlumno, Integer notaPrimerParcial) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
+		
+		if(notaPrimerParcial >= 1 && notaPrimerParcial <= 10) {
+			nota.setPrimerParcial(notaPrimerParcial);
+			cursoAlumno.setNota(nota);
+			return true;
+		}	
+		return false;
+	}
+	
+	public boolean registrarNotaSegundoParcial(Integer idCurso, Integer dniAlumno, Integer notaSegundoParcial) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
+		
+		if(notaSegundoParcial >= 1 && notaSegundoParcial <= 10) {
+			nota.setSegundoParcial(notaSegundoParcial);
+			cursoAlumno.setNota(nota);
+			return true;
+		}	
+		return false;
+	}
+	
+	public boolean registrarNotaPrimerRecuperatorio(Integer idCurso, Integer dniAlumno, Integer notaPrimerRecuperatorio) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
+		
+		if(notaPrimerRecuperatorio >= 1 && notaPrimerRecuperatorio <= 10 && nota.getRecueperatorio() == null) {
+		//if(notaPrimerRecuperatorio >= 1 && notaPrimerRecuperatorio <= 10 && (nota.getPrimerRecueperatorio() == null && nota.getSegundoRecuperatorio() == null) {
+			nota.setRecueperatorio(notaPrimerRecuperatorio);
+			//nota.setPrimerRecuperatorio(notaPrimerRecuperatorio);
+			cursoAlumno.setNota(nota);
+			return true;
+		}	
+		return false;
+	}
+	
+	public boolean registrarNotaSegundoRecuperatorio(Integer idCurso, Integer dniAlumno, Integer notaSegundoRecuperatorio) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
+		
+		if(notaSegundoRecuperatorio >= 1 && notaSegundoRecuperatorio <= 10 && nota.getRecueperatorio() == null) {
+		//if(notaSegundoRecuperatorio >= 1 && notaSegundoRecuperatorio <= 10 && (nota.getPrimerRecueperatorio() == null && nota.getSegundoRecuperatorio() == null) {
+			nota.setRecueperatorio(notaSegundoRecuperatorio);
+			//nota.setSegundoRecuperatorio(notaSegundoRecuperatorio);
+			cursoAlumno.setNota(nota);
+			return true;
+		}	
+		return false;
+	}
+	
+	public boolean registrarNotaFinal(Integer idCurso, Integer dniAlumno, Integer notaFinal) {
+		
+		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
+		Materia materia = buscarMateriaPorCurso(idCurso);
+		//Alumno alumno = cursoAlumno.getAlumno();
+		ArrayList<Materia> materiasAprobadas = buscarMateriasAprobadasDelAlumno(dniAlumno);
+		boolean promociona = buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia,materiasAprobadas);
+		
+		if(notaFinal >= 1 && notaFinal <= 10 && (nota.getPrimerParcial() >= 4 && nota.getSegundoParcial() >= 4) && (promociona)) { //HAY QUE HACER UN SWITCH CASE CON TODAS LAS POSIBILIDADES
+			nota.setNotafinal(notaFinal);
+			cursoAlumno.setNota(nota);
+			return true;
+		}	
+		return false;
+	}
 
+	private ArrayList<Materia> buscarMateriasAprobadasDelAlumno(Integer dniAlumno) {
+		ArrayList<Materia> materiasAprobadas = new ArrayList<>();
+		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if(!(cursoAlumno.getNota().getNotafinal() == null) && (cursoAlumno.getNota().getNotafinal() >= 7)) {
+				Materia materia = buscarMateriaPorCurso(cursoAlumno.getCurso().getIdCurso());
+				materiasAprobadas.add(materia);
+			}
+		}
+		return materiasAprobadas;
+	}
+
+	private Materia buscarMateriaPorCurso(Integer idCurso) {
+		for(Curso curso : cursos) {
+			if(curso.getIdCurso() == idCurso) {
+				return curso.getMateria();
+			}
+		}
+		return null;
+	}
+	
+	private boolean buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(Materia materia,ArrayList<Materia> materiasAprobadas) {
+		if(materia.getCorrelativas().isEmpty()) {
+			return true;
+		}
+		return materiasAprobadas.containsAll(materia.getCorrelativas());
+	}
+
+	//**********************************************************************************************//
 	public Curso_Alumno inscribirAlumnoACurso(Integer dniAlumno, Integer idCurso) {
 		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
 		Curso curso = buscarCursoPorId(idCurso);
@@ -292,6 +431,8 @@ public class Universidad {
 		}
 		return null;
 	}
+
+	
 
 	
 

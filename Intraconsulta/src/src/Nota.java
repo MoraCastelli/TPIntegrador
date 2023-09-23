@@ -4,9 +4,10 @@ import java.util.Objects;
 
 public class Nota {
 	private Integer idNota;
+	private Integer notafinal;
 	private Integer primerParcial;
 	private Integer segundoParcial;
-	private Integer recueperatorio;
+	private Integer recuperatorio; //YO HARIA UNA DIVISION Y PONDRIA PRIMERRECUPERATORIO Y SEGUNDO RECUPERATORIO
 	
 	private static Integer contador = 0;
 	
@@ -15,9 +16,9 @@ public class Nota {
 		this.primerParcial = primerParcial;
 		this.segundoParcial = segundoParcial;
 		if(recueperatorioPrimero != 0) {
-			this.recueperatorio = recueperatorioPrimero;
+			this.recuperatorio = recueperatorioPrimero;
 		}else if(recueperatorioSegundo != 0) {
-			this.recueperatorio = recueperatorioSegundo;
+			this.recuperatorio = recueperatorioSegundo;
 		}
 		this.idNota = contador++;
 	}
@@ -38,6 +39,14 @@ public class Nota {
 		Nota other = (Nota) obj;
 		return Objects.equals(idNota, other.idNota);
 	}
+	
+	public Integer getNotafinal() {
+		return notafinal;
+	}
+
+	public void setNotafinal(Integer notafinal) {
+		this.notafinal = notafinal;
+	}
 
 	public Integer getPrimerParcial() {
 		return primerParcial;
@@ -56,11 +65,11 @@ public class Nota {
 	}
 
 	public Integer getRecueperatorio() {
-		return recueperatorio;
+		return recuperatorio;
 	}
 
 	public void setRecueperatorio(Integer recueperatorio) {
-		this.recueperatorio = recueperatorio;
+		this.recuperatorio = recueperatorio;
 	}
 
 	public static void setContador(Integer contador) {
