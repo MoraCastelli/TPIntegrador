@@ -5,15 +5,14 @@ import java.util.Objects;
 public class Curso_Alumno {
 	private Integer idCursoAlumno;
 	private Alumno alumno;
-	private Nota nota;
+	private Nota nota = new Nota(0,0,0,0);
 	private Curso curso;
 	
 	private static Integer contador = 0;
 	
-	public Curso_Alumno(Curso curso, Alumno alumno, Nota nota) {
+	public Curso_Alumno(Curso curso, Alumno alumno) {
 		this.curso = curso;
 		this.alumno = alumno;
-		this.nota = nota;
 		this.idCursoAlumno = contador++;
 	}
 	
@@ -61,17 +60,5 @@ public class Curso_Alumno {
 	public static void setContador(Integer contador) {
 		Curso_Alumno.contador = contador;
 	}
-
-//	public boolean registraAlumno(Alumno alumno, Universidad universidad) {
-//		if(universidad.getAlumnos().contains(alumno)) {
-//				if(alumno.contains(alumno)) {
-//					return false;
-//				}else {
-//					//alumno.add(alumno);
-//					return true;
-//			}
-//		}
-//		return false;
-//	}
 	
 }

@@ -245,43 +245,37 @@ public class Universidad {
 	}
 	
 	public boolean asignarAulaACurso(Integer idCurso, Integer idAula) {
-		Aula aula = buscarAulaPorId(idAula);
-		Curso curso = buscarCursoPorId(idCurso);
+        Aula aula = buscarAulaPorId(idAula);
+        Curso curso = buscarCursoPorId(idCurso);
+        Integer contador = 0;
+        
+        if(aula != null && curso != null) {
+            for (Curso_Alumno cursoAlumno : relacionCursoAlumno) { 
+                if(cursoAlumno.getCurso().equals(curso)) {
+                    contador++;
+                }
+            }
+        }if(contador <= aula.getCantidadAlumnos()) {
+            curso.setAula(aula);
+            return true;
+        }
+        return false;
+    }
+	
+	private Integer alumnosEnUnCurso(Curso curso) {
 		Integer contador = 0;
 		
-		if(aula != null && curso != null) {
-			for (Curso_Alumno cursoAlumno : relacionCursoAlumno) { 
-				if(cursoAlumno.getCurso().equals(curso)) {
-					contador++;
-				}
+		for (Curso_Alumno cursoAlumno : relacionCursoAlumno) { 
+			if(cursoAlumno.getCurso().equals(curso)) {
+				contador++;
 			}
-		}if(contador <= aula.getCantidadAlumnos()) {
-			curso.setAula(aula);
-			return true;
-        }
-		return false;
+		}
+		return contador;
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////////
 	
 	//*****************A PARTIR DE ACA ES NUEVO CODIGO*********************//
-	
-	
-	public boolean inscribirUnAlumnoACurso(Integer dniAlumno, Integer idCurso) {
-		
-		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
-		Curso curso = buscarCursoPorId(idCurso);	
-		
-		Nota nota = new Nota(0,0,0,0); //REVISAR ESTA LINEA, PORQUE HAY QUE PONER UNA NOTA POR DEFAULT
-		
-		if(alumno != null && curso != null) {
-			Curso_Alumno cursoAlumno = new Curso_Alumno(curso, alumno, nota);
-			if(cargarRelacionCursoAlumno(cursoAlumno)) {			
-				return true;
-			}	
-		}
-		return false;	
-	}
 	
 	public boolean cargarRelacionCursoAlumno (Curso_Alumno cursoAlumno) {
 		if(!(relacionCursoAlumno.isEmpty()) && relacionCursoAlumno.contains(cursoAlumno)) {
@@ -292,6 +286,58 @@ public class Universidad {
 		}
 	}
 	
+	private boolean buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(Materia materia,ArrayList<Materia> materiasAprobadas) {
+		if(materia.getCorrelativas().isEmpty()) {
+			return true;
+		}
+		return materiasAprobadas.containsAll(materia.getCorrelativas());
+	}
+	
+	private ArrayList<Materia> buscarMateriasAprobadasDelAlumno(Integer dniAlumno) {
+		ArrayList<Materia> materiasAprobadas = new ArrayList<>();
+		
+		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if((cursoAlumno.getNota().getNotafinal() != null) && (cursoAlumno.getNota().getNotafinal() >= 7) && cursoAlumno.getAlumno().getDni() == dniAlumno) {
+				Materia materia = cursoAlumno.getCurso().getMateria();
+				
+				materiasAprobadas.add(materia);
+			}
+		}
+		return materiasAprobadas;
+	}
+	
+	
+	
+	public boolean inscribirUnAlumnoACurso(Integer dniAlumno, Integer idCurso) {
+		
+		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
+		Curso curso = buscarCursoPorId(idCurso);
+		Materia materia = buscarMateriaPorCurso(idCurso);
+		LocalDate hoy = LocalDate.of(2023, 3, 10);
+		
+		if(alumno != null && curso != null 
+				&& buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia, buscarMateriasAprobadasDelAlumno(dniAlumno)) 
+				&& (curso.getCicloLectivo().getFechaInicioInscripcion().isBefore(hoy) && curso.getCicloLectivo().getFechaFinalizacionInscripcion().isAfter(hoy)) 
+				&& (alumnosEnUnCurso(curso) < (curso.getAula().getCantidadAlumnos())) 
+				&& buscarTurnosCoincidentes(alumno, curso) 
+				&& !(buscarMateriasAprobadasDelAlumno(dniAlumno).contains(materia))) {
+	
+			Curso_Alumno cursoAlumno = new Curso_Alumno(curso, alumno);
+			cargarRelacionCursoAlumno(cursoAlumno);
+			return true;
+		}
+		return false;	
+	}
+
+	private boolean buscarTurnosCoincidentes(Alumno alumno, Curso curso) {
+		for (Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if(cursoAlumno.getAlumno().equals(alumno) && cursoAlumno.getCurso().getTurno() == curso.getTurno()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	private Curso_Alumno buscarCursoAlumno(Integer idCurso, Integer dniAlumno) {
 		
 		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
@@ -301,6 +347,8 @@ public class Universidad {
 		}			
 		return null;
 	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public boolean registrarNotaPrimerParcial(Integer idCurso, Integer dniAlumno, Integer notaPrimerParcial) {
 		
@@ -362,7 +410,7 @@ public class Universidad {
 		
 		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
 		Nota nota = cursoAlumno.getNota();
-		Materia materia = buscarMateriaPorCurso(idCurso);
+		Materia materia = cursoAlumno.getCurso().getMateria();
 		//Alumno alumno = cursoAlumno.getAlumno();
 		ArrayList<Materia> materiasAprobadas = buscarMateriasAprobadasDelAlumno(dniAlumno);
 		boolean promociona = buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia,materiasAprobadas);
@@ -375,16 +423,7 @@ public class Universidad {
 		return false;
 	}
 
-	private ArrayList<Materia> buscarMateriasAprobadasDelAlumno(Integer dniAlumno) {
-		ArrayList<Materia> materiasAprobadas = new ArrayList<>();
-		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
-			if(!(cursoAlumno.getNota().getNotafinal() == null) && (cursoAlumno.getNota().getNotafinal() >= 7)) {
-				Materia materia = buscarMateriaPorCurso(cursoAlumno.getCurso().getIdCurso());
-				materiasAprobadas.add(materia);
-			}
-		}
-		return materiasAprobadas;
-	}
+	
 
 	private Materia buscarMateriaPorCurso(Integer idCurso) {
 		for(Curso curso : cursos) {
@@ -394,53 +433,5 @@ public class Universidad {
 		}
 		return null;
 	}
-	
-	private boolean buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(Materia materia,ArrayList<Materia> materiasAprobadas) {
-		if(materia.getCorrelativas().isEmpty()) {
-			return true;
-		}
-		return materiasAprobadas.containsAll(materia.getCorrelativas());
-	}
-
-	//**********************************************************************************************//
-	public Curso_Alumno inscribirAlumnoACurso(Integer dniAlumno, Integer idCurso) {
-		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
-		Curso curso = buscarCursoPorId(idCurso);
-		LocalDate hoy = LocalDate.now();
-		
-		// Verificar que el alumno y el curso este dado de alta
-		if(alumno != null && curso != null) {
-			Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
-			
-			//No se puede inscribir Alumnos si este no tiene al 
-			//menos cursada todas las correlativas (Todas las correlativas Con nota >=4)
-			if(alumno.getAprobadas().containsAll(curso.getMateria().getCorrelativas()) 
-					
-					//La inscripción no se puede realizar si esta fuera de fecha Inscripción
-					&& (curso.getCicloLectivo().getFechaInicioInscripcion().isAfter(hoy) && curso.getCicloLectivo().getFechaFinalizacionInscripcion().isBefore(hoy)) 
-					
-					//No se puede inscribir el alumno si excede la cantidad de alumnos permitos en el aula
-					&& (curso.getAlumnosMateria(curso.getMateria()).size() < (curso.getAula().getCapacidad())) 
-					
-					// No se puede inscribir el Alumno si ya está inscripto a otro curso para el mismo día y Turno
-					&& !(curso.getTurno().equals(buscarTurnoCurso(alumno)))) {
-				
-				cursoAlumno.getAlumnos().add(alumno);
-			}
-			return cursoAlumno;
-		}
-		return null;
-	}
-
-	
-
-	
-
-
-	
-
-	
-	
-	
 	
 }

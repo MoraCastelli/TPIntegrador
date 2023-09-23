@@ -448,7 +448,7 @@ public class TestUniversidad {
         assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
     }
 	
-/////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//**********************A PARTIR DE ACA SON LOS NUEVOS TESTS*******************************//
 	
@@ -460,8 +460,9 @@ public class TestUniversidad {
     	Materia materia = new Materia("PB2");    	  
         Alumno alumno = new Alumno (42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
     	CicloLectivo cicloLectivo = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
-    	Integer turno = 1;   
+    	Integer turno = 1;
         Curso curso = new Curso(turno, cicloLectivo, materia);
+        Aula aula = new Aula(20);
         
         //Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
         
@@ -469,6 +470,8 @@ public class TestUniversidad {
         assertTrue (unlam.registrarMateria(materia));
         assertTrue (unlam.registrarCicloLectivo(cicloLectivo));
         assertTrue (unlam.registraCurso(curso));
+        assertTrue (unlam.registraAula(aula));
+        assertTrue(unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
         
         assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
  
@@ -513,7 +516,6 @@ public class TestUniversidad {
         assertTrue (unlam.registraCurso(curso));
         
         assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
-              
         assertTrue (unlam.registrarNotaSegundoParcial(curso.getIdCurso(),alumno.getIdAlumno(),notaSegundoParcial));
 
 	}
