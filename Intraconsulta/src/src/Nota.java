@@ -5,20 +5,21 @@ import java.util.Objects;
 
 public class Nota {
 	private Integer idNota;
-	private Integer notafinal;
-	private Integer primerParcial;
-	private Integer segundoParcial;
-	private Integer recuperatorioPrimero;
-	private Integer recuperatorioSegundo;
-	private Integer identificador;
+	private Integer notafinal = 0;
+	private Integer primerParcial = 0;
+	private Integer segundoParcial = 0;
+	private Integer recuperatorioPrimero = 0;
+	private Integer recuperatorioSegundo = 0;
+	private Integer identificador = 0;
 	
 	private static Integer contador = 0;
 	
-	public Nota(Integer Identificador, Integer parcial) {
+	public Nota(Integer identificador, Integer parcial) {
 		
 		this.idNota = contador++;
+		this.setIdentificador(identificador);
 		
-		switch (Identificador) {
+		switch (identificador) {
 		case 1:
 			this.primerParcial = parcial;
 			break;
@@ -104,6 +105,10 @@ public class Nota {
 
 	public void setRecueperatorioPrimero(Integer recueperatorioPrimero) {
 		this.recuperatorioPrimero = recueperatorioPrimero;
+	}
+
+	public void setIdentificador(Integer identificador) {
+		this.identificador = identificador;
 	}
 		
 }

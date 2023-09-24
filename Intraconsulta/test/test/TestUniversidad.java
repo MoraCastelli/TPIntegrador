@@ -1,9 +1,11 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.junit.Test;
 import src.Universidad;
@@ -243,7 +245,6 @@ public class TestUniversidad {
 		String nombreUniversidad = "Unlam";
     	Universidad unlam = new Universidad (nombreUniversidad);
     	Integer turno = 1;
-    	Integer capacidad = 30;
         String nombreMateria = "PB2";
         LocalDate fechaInicioCicloLectivo = LocalDate.of(2023, 3, 27);
         LocalDate fechaFinalizacionCicloLectivo = LocalDate.of(2023, 7, 15);
@@ -428,8 +429,6 @@ public class TestUniversidad {
         
 	}
 	
-	///HACER MAS TESTS///
-	
 	@Test
     public void asignarAulaAlCurso() {
         
@@ -453,9 +452,6 @@ public class TestUniversidad {
         assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
     }
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////
-	
-	//**********************A PARTIR DE ACA SON LOS NUEVOS TESTS*******************************//
 	
 	@Test
 	public void inscribirAlumnoACurso() {
@@ -468,6 +464,7 @@ public class TestUniversidad {
     	Integer turno = 1;
         Curso curso = new Curso(turno, cicloLectivo, materia);
         Aula aula = new Aula(20);
+        LocalDate hoy = LocalDate.of(2023, 3, 10);
         
         //Curso_Alumno cursoAlumno = new Curso_Alumno(curso);
         
@@ -478,7 +475,7 @@ public class TestUniversidad {
         assertTrue (unlam.registraAula(aula));
         assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
         
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
+        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso(), hoy));
  
 	}
 	
@@ -493,6 +490,7 @@ public class TestUniversidad {
         Curso curso = new Curso(turno, cicloLectivo, materia);
         Integer notaPrimerParcial = 7;
         Aula aula = new Aula(20);
+        LocalDate hoy = LocalDate.of(2023, 3, 10);
               
         assertTrue (unlam.registrarAlumno(alumno));
         assertTrue (unlam.registrarMateria(materia));
@@ -500,10 +498,55 @@ public class TestUniversidad {
         assertTrue (unlam.registraCurso(curso));
         assertTrue (unlam.registraAula(aula));
         assertTrue (unlam.asignarAulaACurso(curso.getIdCurso(), aula.getIdAula()));
-        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso()));
+        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso.getIdCurso(), hoy));
         
         assertTrue (unlam.registrarNota(curso.getIdCurso(),alumno.getIdAlumno(),notaPrimerParcial));
 
 	}
+	
+	@Test
+	public void buscarLasMateriasAprobadasDeUnAlumno() {
+    	Universidad unlam = new Universidad ("Unlam");
+    	unlam.reiniciarContadores();
+    	Materia materia1 = new Materia("PB2");
+    	Materia materia2 = new Materia("BD1");   
+        Alumno alumno = new Alumno(42817472,"Lucas", "Lilla", LocalDate.now(), LocalDate.of(2000, 10, 24)); //Cambiar el NOW, la fecha de ingreso es cuando el alumno entra a la universidad, no cuando se inscribe al curso.
+    	CicloLectivo cicloLectivo1 = new CicloLectivo(LocalDate.of(2023, 3, 3), LocalDate.of(2023, 3, 13), LocalDate.of(2023, 3, 27), LocalDate.of(2023, 7, 15));	
+    	CicloLectivo cicloLectivo2 = new CicloLectivo(LocalDate.of(2023, 7, 20), LocalDate.of(2023, 7, 25), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 12, 1));	
+    	Curso curso1 = new Curso(1, cicloLectivo1, materia1);
+        Curso curso2 = new Curso(2, cicloLectivo2, materia2);
+        Aula aula1 = new Aula(20);
+        Aula aula2 = new Aula(20);
+        ArrayList<Materia> grupoMaterias = new ArrayList<>();
+        ArrayList<Materia> grupoMateriasAprobadas = new ArrayList<>();
+        grupoMaterias.add(materia1);
+        grupoMaterias.add(materia2);
+        LocalDate hoy = LocalDate.of(2023, 3, 10);
+        LocalDate ayer = LocalDate.of(2023, 7, 21);
+              
+        assertTrue (unlam.registrarAlumno(alumno));
+        assertTrue (unlam.registrarMateria(materia1));
+        assertTrue (unlam.registrarMateria(materia2));
+        assertTrue (unlam.registrarCicloLectivo(cicloLectivo1));
+        assertTrue (unlam.registrarCicloLectivo(cicloLectivo2));
+        assertTrue (unlam.registraCurso(curso1));
+        assertTrue (unlam.registraCurso(curso2));
+        assertTrue (unlam.registraAula(aula1));
+        assertTrue (unlam.registraAula(aula2));
+        assertTrue (unlam.asignarAulaACurso(curso1.getIdCurso(), aula1.getIdAula()));
+        assertTrue (unlam.asignarAulaACurso(curso2.getIdCurso(), aula2.getIdAula()));
+        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso1.getIdCurso(), hoy));
+        assertTrue (unlam.inscribirUnAlumnoACurso(alumno.getDni(), curso2.getIdCurso(), ayer));
+        assertTrue (unlam.registrarNota(curso1.getIdCurso(),alumno.getIdAlumno(),9));
+        assertTrue (unlam.registrarNota(curso1.getIdCurso(),alumno.getIdAlumno(),9));
+        assertTrue (unlam.registrarNota(curso1.getIdCurso(),alumno.getIdAlumno(),9));
+        assertTrue (unlam.registrarNota(curso2.getIdCurso(),alumno.getIdAlumno(),9));
+        assertTrue (unlam.registrarNota(curso2.getIdCurso(),alumno.getIdAlumno(),9));
+        assertTrue (unlam.registrarNota(curso2.getIdCurso(),alumno.getIdAlumno(),9));
+        grupoMateriasAprobadas = unlam.buscarMateriasAprobadasDelAlumno(alumno.getDni());
+        
+        assertEquals (grupoMateriasAprobadas, grupoMaterias);
+
+	} 
 
 }
