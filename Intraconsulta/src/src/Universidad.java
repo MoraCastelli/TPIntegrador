@@ -2,7 +2,6 @@ package src;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Universidad {
 	private String nombre;
@@ -143,6 +142,15 @@ public class Universidad {
 	private Alumno buscarAlumnoPorDni(Integer dniAlumno) {
 		for (Alumno alumno : alumnos) {
 			if (alumno.getDni() == dniAlumno) {
+				return alumno;
+			}
+		}
+		return null;
+	}
+	
+	private Alumno buscarAlumnoPorId(Integer idAlumno) {
+		for (Alumno alumno : alumnos) {
+			if (alumno.getIdAlumno() == idAlumno) {
 				return alumno;
 			}
 		}
@@ -295,7 +303,6 @@ public class Universidad {
 		
 		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
 			if((cursoAlumno.getNota().getNotafinal() != null) && (cursoAlumno.getNota().getNotafinal() >= 4) && (cursoAlumno.getAlumno().getDni() == dniAlumno)) {
-				/// NO TIENE NOTA FINAL
 				Materia materia = cursoAlumno.getCurso().getMateria();
 				
 				materiasAprobadas.add(materia);
@@ -345,7 +352,6 @@ public class Universidad {
 		return null;
 	}
 	
-//no carga nota final!!!!!!!!!!!!!!!!!!!!!!
 	
 	//automatizamos la asignacion de recuperatorios asumiendo que promocionar es el objetivo.
 	public Integer contadorDeNotas(Nota nota) {
@@ -412,6 +418,7 @@ public class Universidad {
 		}
 		return null;
 	}
+	
 
 	//No sabiamos si la consigna obtenerNota debia devolver una Nota o un Integer asi que hicimos los dos metodos
 	public Nota obtenerNota(Integer idAlumno, Integer idMateria) {
@@ -431,6 +438,30 @@ public class Universidad {
 		}return 0;
 	}
 	
+	public ArrayList<Materia> obtenerMateriasQueFaltanCursarParaUnAlumno(Integer idAlumno){
+		Alumno alumno = buscarAlumnoPorId(idAlumno);
+		ArrayList<Materia> materiasNoAprobadas = (ArrayList<Materia>) materias.clone();
+		ArrayList<Materia> materiasAprobadas = buscarMateriasAprobadasDelAlumno(alumno.getDni());
+		materiasNoAprobadas.removeAll(materiasAprobadas);
+		
+		return materiasNoAprobadas;
+	}
+	
+	public Integer sumarNotaFinalDeMateriasDelAlumno(Integer dniAlumno) {
+		Integer contador = 0;
+		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if((cursoAlumno.getNota().getNotafinal() != null) && (cursoAlumno.getNota().getNotafinal() != 0) && (cursoAlumno.getAlumno().getDni() == dniAlumno)) {
+				contador += cursoAlumno.getNota().getNotafinal();
+			}
+		}
+		return contador;
+	}
+	
+	public Double calcularPromedio(Integer idAlumno) {
+		Double contador1 = (double) sumarNotaFinalDeMateriasDelAlumno(buscarAlumnoPorId(idAlumno).getDni());
+		Integer contador2 =  buscarMateriasAprobadasDelAlumno(buscarAlumnoPorId(idAlumno).getDni()).size();
+		return (contador1 / contador2);
+	}
 	
 	//Este método nos permite reiniciar los contadores que autoincrementan los IDs en las clases.
 	//Lo hicimos ya que queremos que en cada test unitario, los objetos se identifiquen empezando por el 0.

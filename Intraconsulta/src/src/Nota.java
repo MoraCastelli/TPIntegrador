@@ -4,12 +4,14 @@ import java.util.Objects;
 
 
 public class Nota {
+	@SuppressWarnings("unused")
 	private Integer idNota;
 	private Integer notafinal;
 	private Integer primerParcial;
 	private Integer segundoParcial;
 	private Integer recuperatorioPrimero;
 	private Integer recuperatorioSegundo;
+	@SuppressWarnings("unused")
 	private Integer identificador;
 	
 	private static Integer contador = 0;

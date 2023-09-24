@@ -9,7 +9,9 @@ public class Alumno {
 	private Integer dniAlumno;
 	private String nombreAlumno;
 	private String apellidoAlumno;
+	@SuppressWarnings("unused")
 	private LocalDate fechaIngreso;
+	@SuppressWarnings("unused")
 	private LocalDate fechaNacimiento;
 	
 	private static Integer contador = 0;

@@ -3,6 +3,7 @@ package src;
 import java.util.Objects;
 
 public class Curso_Profe {
+	@SuppressWarnings("unused")
 	private Integer idCursoProfesor;
 	private Curso curso;
 	private Profesor profesor;
