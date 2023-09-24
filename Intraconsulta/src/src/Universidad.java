@@ -311,7 +311,7 @@ public class Universidad {
 		Alumno alumno = buscarAlumnoPorDni(dniAlumno);
 		Curso curso = buscarCursoPorId(idCurso);
 		Materia materia = buscarMateriaPorCurso(idCurso);
-		Nota nota = new Nota(0,0);
+		Nota nota = new Nota();
 		
 		if(alumno != null && curso != null 
 				&& buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(materia, buscarMateriasAprobadasDelAlumno(dniAlumno)) 
@@ -338,7 +338,7 @@ public class Universidad {
 	private Curso_Alumno buscarCursoAlumno(Integer idCurso, Integer dniAlumno) {
 		
 		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
-			if((cursoAlumno.getCurso().getIdCurso() == idCurso) && (cursoAlumno.getAlumno().getIdAlumno() == dniAlumno)) {
+			if((cursoAlumno.getCurso().getIdCurso() == idCurso) && (cursoAlumno.getAlumno().getDni() == dniAlumno)) {
 				return cursoAlumno;
 			}
 		}			
@@ -349,7 +349,6 @@ public class Universidad {
 	
 	//automatizamos la asignacion de recuperatorios asumiendo que promocionar es el objetivo.
 	public Integer contadorDeNotas(Nota nota) {
-		nota.setIdentificador(0);
 		if (nota != null) {
 			if(nota.getPrimerParcial() == 0) {
 				return 1;
@@ -383,22 +382,22 @@ public class Universidad {
 	public boolean registrarNota(Integer idCurso, Integer dniAlumno, Integer numero) {
 		
 		Curso_Alumno cursoAlumno = buscarCursoAlumno(idCurso,dniAlumno);
+		Nota nota = cursoAlumno.getNota();
 		Integer identificador = contadorDeNotas(cursoAlumno.getNota());
 		boolean promociona = buscarQueEstenAprobadasTodasLasCorrelativasDeUnaMateria(cursoAlumno.getCurso().getMateria(),buscarMateriasAprobadasDelAlumno(dniAlumno));
-		Nota nota = new Nota(identificador, numero);
 		
 		if((numero >= 1 && numero <= 10)) {
 			
 			if(identificador != 5) {
-				cursoAlumno.setNota(nota);
+				cursoAlumno.setNota(nota.setNotas(identificador, numero));
 				return true;
 				
 			}if(identificador == 5 && promociona){
-				cursoAlumno.setNota(nota);
+				cursoAlumno.setNota(nota.setNotas(identificador, numero));
 				return true;
 				
 			}if(identificador == 5 && !promociona && numero < 7){
-				cursoAlumno.setNota(nota);
+				cursoAlumno.setNota(nota.setNotas(identificador, numero));
 				return true;
 			}
 		}return false;
@@ -413,6 +412,25 @@ public class Universidad {
 		}
 		return null;
 	}
+
+	//No sabiamos si la consigna obtenerNota debia devolver una Nota o un Integer asi que hicimos los dos metodos
+	public Nota obtenerNota(Integer idAlumno, Integer idMateria) {
+		
+		for(Curso_Alumno cursoAlumno : relacionCursoAlumno) {
+			if((cursoAlumno.getCurso().getMateria().getIdMateria() == idMateria) && (cursoAlumno.getAlumno().getIdAlumno() == idAlumno)) {
+				return cursoAlumno.getNota();
+			}
+		}			
+		return null;
+	}
+	
+	//No sabiamos si la consigna obtenerNota debia devolver una Nota o un Integer asi que hicimos los dos metodos
+	public Integer obtenerNotaFinal(Integer idAlumno, Integer idMateria) {	
+		if(obtenerNota(idAlumno, idMateria) != null) {
+			return obtenerNota(idAlumno, idMateria).getNotafinal();
+		}return 0;
+	}
+	
 	
 	//Este método nos permite reiniciar los contadores que autoincrementan los IDs en las clases.
 	//Lo hicimos ya que queremos que en cada test unitario, los objetos se identifiquen empezando por el 0.

@@ -5,50 +5,28 @@ import java.util.Objects;
 
 public class Nota {
 	private Integer idNota;
-	private Integer notafinal = 0;
-	private Integer primerParcial = 0;
-	private Integer segundoParcial = 0;
-	private Integer recuperatorioPrimero = 0;
-	private Integer recuperatorioSegundo = 0;
-	private Integer identificador = 0;
+	private Integer notafinal;
+	private Integer primerParcial;
+	private Integer segundoParcial;
+	private Integer recuperatorioPrimero;
+	private Integer recuperatorioSegundo;
+	private Integer identificador;
 	
 	private static Integer contador = 0;
 	
-	public Nota(Integer identificador, Integer parcial) {
-		
+	public Nota() {
 		this.idNota = contador++;
-		this.setIdentificador(identificador);
-		
-		switch (identificador) {
-		case 1:
-			this.primerParcial = parcial;
-			break;
-		case 2:
-			this.segundoParcial = parcial;
-			break;
-		case 3:
-			this.recuperatorioPrimero = parcial;
-			break;
-		case 4:
-			this.recuperatorioSegundo = parcial;
-			break;
-		case 5:
-			this.notafinal = parcial;
-
-		default:
-			this.primerParcial = 0;
-			this.segundoParcial = 0;
-			this.recuperatorioPrimero = 0;
-			this.recuperatorioSegundo = 0;
-			this.notafinal = 0;
-			break;
-		}
+		this.primerParcial = 0;
+		this.segundoParcial = 0;
+		this.recuperatorioPrimero = 0;
+		this.recuperatorioSegundo = 0;
+		this.notafinal = 0;
 		
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(idNota);
+		return Objects.hash(notafinal, primerParcial, recuperatorioPrimero, recuperatorioSegundo, segundoParcial);
 	}
 
 	@Override
@@ -60,9 +38,12 @@ public class Nota {
 		if (getClass() != obj.getClass())
 			return false;
 		Nota other = (Nota) obj;
-		return Objects.equals(idNota, other.idNota);
+		return Objects.equals(notafinal, other.notafinal) && Objects.equals(primerParcial, other.primerParcial)
+				&& Objects.equals(recuperatorioPrimero, other.recuperatorioPrimero)
+				&& Objects.equals(recuperatorioSegundo, other.recuperatorioSegundo)
+				&& Objects.equals(segundoParcial, other.segundoParcial);
 	}
-	
+
 	public Integer getNotafinal() {
 		return notafinal;
 	}
@@ -109,6 +90,31 @@ public class Nota {
 
 	public void setIdentificador(Integer identificador) {
 		this.identificador = identificador;
+	}
+
+	public Nota setNotas(Integer identificador, Integer parcial) {
+		
+		switch (identificador) {
+		case 1:
+			this.primerParcial = parcial;
+			break;
+		case 2:
+			this.segundoParcial = parcial;
+			break;
+		case 3:
+			this.recuperatorioPrimero = parcial;
+			break;
+		case 4:
+			this.recuperatorioSegundo = parcial;
+			break;
+		case 5:
+			this.notafinal = parcial;
+
+		default:
+			identificador = 0;
+			break;
+		}
+	return this;
 	}
 		
 }
