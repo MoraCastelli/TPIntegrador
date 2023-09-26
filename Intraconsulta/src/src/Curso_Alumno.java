@@ -16,12 +16,10 @@ public class Curso_Alumno {
 		this.nota = nota;
 		this.idCursoAlumno = contador++;
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(idCursoAlumno);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -33,33 +31,25 @@ public class Curso_Alumno {
 		Curso_Alumno other = (Curso_Alumno) obj;
 		return Objects.equals(idCursoAlumno, other.idCursoAlumno);
 	}
-
 	public Alumno getAlumno() {
 		return alumno;
 	}
-
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
-
 	public Curso getCurso() {
 		return curso;
 	}
-
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-
 	public Nota getNota() {
 		return nota;
 	}
-
 	public void setNota(Nota nota) {
 		this.nota = nota;
 	}
-
 	public static void setContador(Integer contador) {
 		Curso_Alumno.contador = contador;
 	}
-	
 }

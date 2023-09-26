@@ -24,12 +24,10 @@ public class Alumno {
 		this.fechaIngreso = fechaIngreso;
 		this.setIdAlumno(contador++);
 	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(dniAlumno);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,7 +39,6 @@ public class Alumno {
 		Alumno other = (Alumno) obj;
 		return Objects.equals(dniAlumno, other.dniAlumno);
 	}
-
 	public Integer getDni() {
 		return dniAlumno;
 	}
@@ -66,10 +63,7 @@ public class Alumno {
 	public void setIdAlumno(Integer idAlumno) {
 		this.idAlumno = idAlumno;
 	}
-	
 	public static void setContador(Integer contador) {
 		Alumno.contador = contador;
 	}
-	
-	
 }

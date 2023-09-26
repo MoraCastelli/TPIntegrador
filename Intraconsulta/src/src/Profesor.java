@@ -11,18 +11,15 @@ public class Profesor {
 	private static Integer contador = 0;
 	
 	public Profesor(Integer dni, String nombre, String apellido) {
-		super();
 		this.dniProfesor = dni;
 		this.nombreProfesor = nombre;
 		this.apellidoProfesor = apellido;
 		this.setIdProfesor(contador++);
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(dniProfesor);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -34,7 +31,6 @@ public class Profesor {
 		Profesor other = (Profesor) obj;
 		return Objects.equals(dniProfesor, other.dniProfesor);
 	}
-
 	public Integer getDni() {
 		return dniProfesor;
 	}
@@ -59,9 +55,7 @@ public class Profesor {
 	public void setIdProfesor(Integer idProfesor) {
 		this.idProfesor = idProfesor;
 	}
-
 	public static void setContador(Integer contador) {
 		Profesor.contador = contador;
-	}		
-	
+	}
 }

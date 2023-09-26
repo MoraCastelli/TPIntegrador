@@ -2,7 +2,6 @@ package src;
 
 import java.util.Objects;
 
-
 public class Nota {
 	@SuppressWarnings("unused")
 	private Integer idNota;
@@ -23,14 +22,11 @@ public class Nota {
 		this.recuperatorioPrimero = 0;
 		this.recuperatorioSegundo = 0;
 		this.notafinal = 0;
-		
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(notafinal, primerParcial, recuperatorioPrimero, recuperatorioSegundo, segundoParcial);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -45,57 +41,43 @@ public class Nota {
 				&& Objects.equals(recuperatorioSegundo, other.recuperatorioSegundo)
 				&& Objects.equals(segundoParcial, other.segundoParcial);
 	}
-
 	public Integer getNotafinal() {
 		return notafinal;
 	}
-
 	public void setNotafinal(Integer notafinal) {
 		this.notafinal = notafinal;
 	}
-
 	public Integer getPrimerParcial() {
 		return primerParcial;
 	}
-
 	public void setPrimerParcial(Integer primerParcial) {
 		this.primerParcial = primerParcial;
 	}
-
 	public Integer getSegundoParcial() {
 		return segundoParcial;
 	}
-
 	public void setSegundoParcial(Integer segundoParcial) {
 		this.segundoParcial = segundoParcial;
 	}
-
 	public static void setContador(Integer contador) {
 		Nota.contador = contador;
 	}
-
 	public Integer getRecueperatorioSegundo() {
 		return recuperatorioSegundo;
 	}
-
 	public void setRecueperatorioSegundo(Integer recueperatorioSegundo) {
 		this.recuperatorioSegundo = recueperatorioSegundo;
 	}
-
 	public Integer getRecueperatorioPrimero() {
 		return recuperatorioPrimero;
 	}
-
 	public void setRecueperatorioPrimero(Integer recueperatorioPrimero) {
 		this.recuperatorioPrimero = recueperatorioPrimero;
 	}
-
 	public void setIdentificador(Integer identificador) {
 		this.identificador = identificador;
 	}
-
 	public Nota setNotas(Integer identificador, Integer parcial) {
-		
 		switch (identificador) {
 		case 1:
 			this.primerParcial = parcial;
@@ -117,6 +99,5 @@ public class Nota {
 			break;
 		}
 	return this;
-	}
-		
+	}	
 }

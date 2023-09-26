@@ -3,7 +3,6 @@ package src;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 public class Materia {
 	private Integer idMateria;
 	private String nombreMateria;
@@ -16,12 +15,10 @@ public class Materia {
 		this.correlativas = new ArrayList<>();
 		this.setIdMateria(contador++);
 	}
-		
 	@Override
 	public int hashCode() {
 		return Objects.hash(idMateria, nombreMateria);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -33,7 +30,6 @@ public class Materia {
 		Materia other = (Materia) obj;
 		return Objects.equals(idMateria, other.idMateria) || Objects.equals(nombreMateria, other.nombreMateria);
 	}
-
 	public String getNombre() {
 		return nombreMateria;
 	}
@@ -46,17 +42,13 @@ public class Materia {
 	public void setCorrelativas(ArrayList<Materia> correlativas) {
 		this.correlativas = correlativas;
 	}
-
 	public Integer getIdMateria() {
 		return idMateria;
 	}
-
 	public void setIdMateria(Integer idMateria) {
 		this.idMateria = idMateria;
 	}
-	
 	public static void setContador(Integer contador) {
 		Materia.contador = contador;
 	}
-	
 }

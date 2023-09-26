@@ -12,12 +12,10 @@ public class Aula {
 		this.cantidadAlumnos = cantidadAlumnos;
 		this.idAula = contador++;
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(idAula);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -29,26 +27,19 @@ public class Aula {
 		Aula other = (Aula) obj;
 		return Objects.equals(idAula, other.idAula);
 	}
-
-	
-
 	public Integer getIdAula() {
 		return idAula;
 	}
-
 	public void setIdAula(Integer idAula) {
 		this.idAula = idAula;
 	}
-
 	public Integer getCantidadAlumnos() {
 		return cantidadAlumnos;
 	}
 	public void setCantidadAlumnos(Integer capacidad) {
 		this.cantidadAlumnos = capacidad;
 	}
-	
 	public static void setContador(Integer contador) {
 		Aula.contador = contador;
 	}
-	
 }

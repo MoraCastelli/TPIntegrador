@@ -11,17 +11,14 @@ public class Curso_Profe {
 	private static Integer contador = 0;
 	
 	public Curso_Profe(Curso curso, Profesor profesor) {
-		super();
 		this.curso = curso;
 		this.profesor = profesor;
 		this.idCursoProfesor = contador++;
 	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(curso, profesor);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -33,9 +30,6 @@ public class Curso_Profe {
 		Curso_Profe other = (Curso_Profe) obj;
 		return Objects.equals(curso, other.curso) && Objects.equals(profesor, other.profesor);
 	}
-
-
-
 	public Curso getCurso() {
 		return curso;
 	}
@@ -48,9 +42,7 @@ public class Curso_Profe {
 	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
 	}
-
 	public static void setContador(Integer contador) {
 		Curso_Profe.contador = contador;
-	}	
-	
+	}
 }
