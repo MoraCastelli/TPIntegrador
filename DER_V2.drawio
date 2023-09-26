@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-09-16T22:02:43.245Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="H_rUDtnl7SOV3gq-DdSJ" version="21.3.7" type="device">
+<mxfile host="Electron" modified="2023-09-23T17:36:21.031Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="L-LPZmRFFThO7YfAKdyO" version="21.3.7" type="device">
   <diagram name="Página-1" id="93X_wzTYXH5mzvOAhfSR">
-    <mxGraphModel dx="2730" dy="1929" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2071" dy="2201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -191,46 +191,10 @@
             <mxPoint x="555" y="338.92" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-85" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="775" y="238.48999999999998" width="80" height="40.43" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-86" value="" style="ellipse;whiteSpace=wrap;html=1;" parent="R3JOXZX9XCchuC56mEBD-85" vertex="1">
-          <mxGeometry width="80.00000000000001" height="40.43" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-87" value="aprobadas" style="ellipse;whiteSpace=wrap;html=1;" parent="R3JOXZX9XCchuC56mEBD-85" vertex="1">
-          <mxGeometry x="8" y="5.051785714285715" width="64" height="30.322499999999998" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-88" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-3" target="R3JOXZX9XCchuC56mEBD-86" edge="1">
+        <mxCell id="R3JOXZX9XCchuC56mEBD-95" value="" style="endArrow=none;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="370Rie6uaGJgxYZ3YHOn-5" target="R3JOXZX9XCchuC56mEBD-52" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="605" y="288.92" as="sourcePoint" />
-            <mxPoint x="655" y="238.92" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-90" value="promocionados" style="ellipse;whiteSpace=wrap;html=1;dashed=1;gradientColor=none;shadow=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="475" y="248.92" width="90" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-93" value="desaprobados" style="ellipse;whiteSpace=wrap;html=1;dashed=1;sketch=1;curveFitting=1;jiggle=2;shadow=1;" parent="1" vertex="1">
-          <mxGeometry x="534.5" y="285.65000000000003" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-94" value="a_final" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontStyle=0;sketch=1;curveFitting=1;jiggle=2;shadow=1;" parent="1" vertex="1">
-          <mxGeometry x="605" y="243.48999999999998" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-95" value="" style="endArrow=none;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-90" target="R3JOXZX9XCchuC56mEBD-52" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="525" y="288.92" as="sourcePoint" />
+            <mxPoint x="520" y="248.92000000000007" as="sourcePoint" />
             <mxPoint x="575" y="238.92" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-96" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-93" target="R3JOXZX9XCchuC56mEBD-52" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="485" y="268.92" as="sourcePoint" />
-            <mxPoint x="500" y="248.92" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-97" value="" style="endArrow=none;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-94" target="R3JOXZX9XCchuC56mEBD-52" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="560" y="274.92" as="sourcePoint" />
-            <mxPoint x="535" y="248.92" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="R3JOXZX9XCchuC56mEBD-98" value="NOTA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a0522d;fontColor=#ffffff;strokeColor=#6D1F00;" parent="1" vertex="1">
@@ -240,18 +204,6 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="495" y="118.92" as="sourcePoint" />
             <mxPoint x="475" y="98.92" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-112" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-52" target="R3JOXZX9XCchuC56mEBD-109" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="435" y="208.92" as="sourcePoint" />
-            <mxPoint x="455" y="178.92" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-116" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-52" target="R3JOXZX9XCchuC56mEBD-114" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="500" y="208.92" as="sourcePoint" />
-            <mxPoint x="466" y="166.92" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Hg-dd6soAOUjeYecF2Gm-1" value="idMateria" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
@@ -347,9 +299,6 @@
         <mxCell id="Hg-dd6soAOUjeYecF2Gm-21" value="idCurso" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="270" y="335.07" width="52.5" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Hg-dd6soAOUjeYecF2Gm-24" value="&lt;b&gt;turno + dia&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="340" y="358.92" width="90" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="Hg-dd6soAOUjeYecF2Gm-25" value="idAula" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="25" y="283.92" width="60" height="30" as="geometry" />
         </mxCell>
@@ -360,10 +309,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="C_jG89wQUHeu9iVozWbT-5" value="UNIVERSIDAD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a0522d;fontColor=#ffffff;strokeColor=#6D1F00;" parent="1" vertex="1">
-          <mxGeometry x="-489.5" y="-144.57" width="120" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-10" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;crearProfesores&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-495" y="-30" width="102.5" height="30" as="geometry" />
+          <mxGeometry x="-40" y="-140" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="C_jG89wQUHeu9iVozWbT-14" value="nombreProfesor" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="881.5" y="348.92" width="112.5" height="30" as="geometry" />
@@ -395,13 +341,13 @@
         <mxCell id="C_jG89wQUHeu9iVozWbT-22" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1070" y="-160" as="sourcePoint" />
-            <mxPoint x="-500" y="-160" as="targetPoint" />
+            <mxPoint x="-60" y="-160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C_jG89wQUHeu9iVozWbT-23" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-500" y="600" as="sourcePoint" />
-            <mxPoint x="-500" y="-160" as="targetPoint" />
+            <mxPoint x="-60" y="600" as="sourcePoint" />
+            <mxPoint x="-60" y="-160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C_jG89wQUHeu9iVozWbT-24" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
@@ -413,7 +359,7 @@
         <mxCell id="C_jG89wQUHeu9iVozWbT-25" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1070" y="600" as="sourcePoint" />
-            <mxPoint x="-500" y="600" as="targetPoint" />
+            <mxPoint x="-60" y="600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C_jG89wQUHeu9iVozWbT-26" value="recuperatorioSegundoParcial" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -443,19 +389,10 @@
             <mxPoint x="865" y="338.92" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-36" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- obtenerListadoMateriasAprobadasParaUnALumno (idAlumno)&amp;nbsp; &amp;nbsp;&lt;/font&gt;&lt;font color=&quot;#ffcc99&quot;&gt;Ej: dni - nombre - apellido - nombreMateria - nota - cicloLectivo (20231C)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-493" y="518.92" width="743" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-38" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- obtenerMateriasQueFaltanCursarParaUnALumno (idAlumno)&amp;nbsp; &amp;nbsp;&lt;/font&gt;&lt;font color=&quot;#ffcc99&quot;&gt;Ej: nombreMateria (Taller Web 1)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-493" y="540.21" width="523" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-40" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- obtenerReporteDeNotasDeAlumnosDeCurso (idCurso)&amp;nbsp; &amp;nbsp;&lt;/font&gt;&lt;font color=&quot;#ffcc99&quot;&gt;Ej: idCurso - nombreMateria - dni - nombre - apellido - notaFinal (7)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-494.5" y="561.21" width="674.5" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="me7qOoSb2LdKIDo0Izka-1" value="idNota" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="465" y="-17.64999999999999" width="60" height="30" as="geometry" />
+          <mxGeometry x="465" y="50.000000000000014" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="me7qOoSb2LdKIDo0Izka-2" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-98" target="me7qOoSb2LdKIDo0Izka-1" edge="1">
+        <mxCell id="me7qOoSb2LdKIDo0Izka-2" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="R3JOXZX9XCchuC56mEBD-98" target="me7qOoSb2LdKIDo0Izka-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="575" y="129.92" as="sourcePoint" />
             <mxPoint x="605" y="113.92" as="targetPoint" />
@@ -469,9 +406,6 @@
             <mxPoint x="902" y="233.92" as="sourcePoint" />
             <mxPoint x="865" y="188.92" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="me7qOoSb2LdKIDo0Izka-6" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;crearAula&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-512.5" y="-12.57" width="102.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ImvImkgnJCbDLg4etKFW-1" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="Hg-dd6soAOUjeYecF2Gm-21" target="R3JOXZX9XCchuC56mEBD-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -491,134 +425,35 @@
             <mxPoint x="2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-32" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-511.5" y="20" width="359" height="50" as="geometry" />
+        <mxCell id="ImvImkgnJCbDLg4etKFW-51" value="notaFinal" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="439" y="-5.229999999999993" width="86" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-11" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- asignarMateriaCorrelativa (idMateria, idMateriaCorrelativa)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-32" vertex="1">
-          <mxGeometry width="353.5" height="30" as="geometry" />
+        <mxCell id="370Rie6uaGJgxYZ3YHOn-1" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="R3JOXZX9XCchuC56mEBD-98" target="me7qOoSb2LdKIDo0Izka-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="545" y="45" as="sourcePoint" />
+            <mxPoint x="516" y="54" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="530" y="50" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-10" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Se debe validar que ambos códigos existan en una materia&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-32" vertex="1">
-          <mxGeometry x="5.5" y="20" width="353.5" height="30" as="geometry" />
+        <mxCell id="370Rie6uaGJgxYZ3YHOn-2" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="R3JOXZX9XCchuC56mEBD-98" target="ImvImkgnJCbDLg4etKFW-51">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="555" y="55" as="sourcePoint" />
+            <mxPoint x="526" y="64" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-33" value="" style="group;fontStyle=0" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-497" y="-114.57" width="396.5" height="40" as="geometry" />
+        <mxCell id="370Rie6uaGJgxYZ3YHOn-3" value="idCursoProfesor" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="490" y="418.92" width="105" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Hg-dd6soAOUjeYecF2Gm-29" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;// No se puede asignar 2 materias con mismo Id&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-33" vertex="1">
-          <mxGeometry x="111" width="285.5" height="40" as="geometry" />
+        <mxCell id="370Rie6uaGJgxYZ3YHOn-4" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="370Rie6uaGJgxYZ3YHOn-3" target="R3JOXZX9XCchuC56mEBD-46">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="708" y="330.88" as="sourcePoint" />
+            <mxPoint x="566" y="418.96" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-6" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;agregarMaterias&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-33" vertex="1">
-          <mxGeometry y="5" width="102.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-34" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-496" y="-91" width="404" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Hg-dd6soAOUjeYecF2Gm-30" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;// No se puede asignar 2 alumnos con el mismo DNI&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-34" vertex="1">
-          <mxGeometry x="124" width="280" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-7" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;agregarAlumnos&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="ImvImkgnJCbDLg4etKFW-34" vertex="1">
-          <mxGeometry width="102.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-35" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-493" y="-70.72" width="639" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Hg-dd6soAOUjeYecF2Gm-32" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;// No se pueden generar 2 cursos para la misma materia, el mismo ciclo lectivo y el mismo turno&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-35" vertex="1">
-          <mxGeometry x="117" y="3.1399999999999935" width="522" height="23.71" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-8" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;crearCicloLectivo&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-35" vertex="1">
-          <mxGeometry width="102.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-37" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-509.5" y="-50.57" width="816" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Hg-dd6soAOUjeYecF2Gm-31" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;// No se puede asignar 2 ciclos lectivos con mismo Id y no se pueden superponer los rangos de fechas entre 2 ciclos distintos&amp;nbsp;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-37" vertex="1">
-          <mxGeometry x="130.5" y="1.2199999999999989" width="685.5" height="27.57" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-9" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;crearCurso&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-37" vertex="1">
-          <mxGeometry width="102.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-38" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-506" y="70" width="353.5" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-34" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- eliminarCorrelativa (idMateria, idMateriaCorrelativa)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-38" vertex="1">
-          <mxGeometry x="9" width="290" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-11" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Se debe validar que ambos códigos existan en una materia&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-38" vertex="1">
-          <mxGeometry y="19" width="353.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-39" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-512.5" y="127.57" width="512" height="158" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-35" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- inscribirALumnoACurso (dniAlumno, idCurso)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry y="2" width="287.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-12" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Verificar que el alumno y el curso este dado de alta&amp;nbsp;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry x="20.5" y="24.430000000000007" width="290" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-28" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// No se puede inscribir Alumnos si este no tiene al menos cursada todas las correlativas (Todas las correlativas con nota &amp;gt;=4)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry x="20.5" y="51.140000000000015" width="381" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-29" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// La inscripción no se puede realizar si esta fuera de fecha de inscripción&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry x="22" y="81.14000000000001" width="399.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-30" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// No se puede inscribir el alumno si excede la cantidad de alumnos permitidos en el aula&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry x="22" y="104" width="489.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-31" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// No se puede inscribir el alumno si ya está inscripto a otro curso para el mismo día y turno&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-39" vertex="1">
-          <mxGeometry x="22.5" y="128" width="489.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-43" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-509.5" y="291.72" width="529" height="78.19999999999999" as="geometry" />
-        </mxCell>
-        <mxCell id="C_jG89wQUHeu9iVozWbT-37" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- asignarProfesoresAlCurso (idCurso, idProfesor)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-43" vertex="1">
-          <mxGeometry x="14.5" width="270.25" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-41" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Verificar que exista el curso y el docente&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-43" vertex="1">
-          <mxGeometry y="22.19999999999999" width="270.25" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-42" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Cada 20 alumnos se debe agregar un docente, ej: de 1 a 20 alumnos solo se puede asignar un docente, de 21 a 40, 2 docentes&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-43" vertex="1">
-          <mxGeometry x="20" y="48.19999999999999" width="509" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-50" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-533" y="386.92" width="671" height="132.00000000000006" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-9" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ff8000&quot;&gt;- registrarNota (idCurso, idAlumno, nota)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry x="16.5" width="270.25" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-44" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// La nota debe estar entre 1 y 10&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry y="22" width="270.25" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-45" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// No se puede asignar una nota mayor o igual a 7 si no están todas las correlativas aprobadas (mayor o igual a 7)&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry x="28" y="42" width="643" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-46" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Las notas pueden ser de tipo 1erParc, 2doParc, Rec1Parcial, Rec2Parcial&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry x="40" y="62" width="417" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-47" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Se pueden asignar hasta 3 tipos de notas pero no se pueden cargar 2 notas del mismo tipo&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry x="38" y="82.07999999999998" width="513" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-48" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;font color=&quot;#ffcc99&quot;&gt;// Ejemplo válido: nota de 1erParc. 2doParc, Rec1Parcial, o 2doParc, Rec1Parcial, Rec2Parcial&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="ImvImkgnJCbDLg4etKFW-50" vertex="1">
-          <mxGeometry x="29" y="102" width="541" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-51" value="notaFinal" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
-          <mxGeometry x="689" y="39.92" width="86" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-52" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="475" y="99.92" width="80" height="50.000000000000014" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-109" value="" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;" parent="ImvImkgnJCbDLg4etKFW-52" vertex="1">
-          <mxGeometry width="80" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-110" value="aprobados" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;" parent="ImvImkgnJCbDLg4etKFW-52" vertex="1">
-          <mxGeometry x="8" y="5.357142857142861" width="64" height="39.285714285714285" as="geometry" />
-        </mxCell>
-        <mxCell id="ImvImkgnJCbDLg4etKFW-53" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="615" y="98.92" width="100" height="49.000000000000014" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-114" value="" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="ImvImkgnJCbDLg4etKFW-53" vertex="1">
-          <mxGeometry width="100" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="R3JOXZX9XCchuC56mEBD-115" value="desaprobados" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="ImvImkgnJCbDLg4etKFW-53" vertex="1">
-          <mxGeometry x="10" y="5.25" width="80" height="38.5" as="geometry" />
+        <mxCell id="370Rie6uaGJgxYZ3YHOn-5" value="idCursoAlumno" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="490" y="228.49" width="100" height="31.51" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
