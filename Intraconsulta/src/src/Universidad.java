@@ -195,12 +195,13 @@ public class Universidad {
 					contador++;
 				}
 			}
-		}if(contador<=20) {
-			Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
-			if(cargarRelacionCursoProfesor (cursoProfesor)) {
-				 return true;
-			}
-        }
+			if(contador<=20) {
+				Curso_Profe cursoProfesor = new Curso_Profe(curso, profesor);
+				if(cargarRelacionCursoProfesor (cursoProfesor)) {
+					 return true;
+				}
+	        }
+		}
 		return false;
 	}
 	
@@ -263,9 +264,10 @@ public class Universidad {
                     contador++;
                 }
             }
-        }if(contador <= aula.getCantidadAlumnos()) {
-            curso.setAula(aula);
-            return true;
+            if(contador <= aula.getCantidadAlumnos()) { 
+                curso.setAula(aula);
+                return true;
+            }
         }
         return false;
     }
